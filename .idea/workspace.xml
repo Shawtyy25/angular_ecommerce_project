@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3de9ab4-0d01-4008-9f14-0320ee52d121" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/ecommerce.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.component.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,6 +81,7 @@
       <workItem from="1744445970496" duration="93000" />
       <workItem from="1744446416583" duration="4678000" />
       <workItem from="1744451294576" duration="182000" />
+      <workItem from="1744456035564" duration="2674000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,141 @@
+$container: #706f6f;
+
+/*TEST COLORS*/
+$test1: #ffffff;
+$test2: #4b6c67;
+$inputTest: #eae6ff;
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $container;
+  max-width: 1200px;
+  height: 600px;
+  border-radius: 10px;
+
+  /* LEFT SIDE */
+  & .left-side {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 10rem 2rem;
+    position: relative;
+    background-color: $test2;
+    width: 60%;
+    height: 100%;
+    color: white;
+    letter-spacing: 1px;
+
+    .left-content{
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+      gap: 1rem;
+    }
+  }
+
+  /* RIGHT SIDE */
+  .right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $test1;
+    width: 40%;
+    height: 100%;
+    gap: 20px;
+
+    .login-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input {
+      background-color: $inputTest;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      padding: 15px 20px;
+      width: 300px;
+      font-size: .8rem;
+      color: #676666;
+    }
+  }
+}
+
+/* USERNAME DIV + INPUT */
+.username-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+
+}
+
+/* PASSWORD DIV + INPUT */
+.password-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  i {
+    position: absolute;
+    right: 15px;
+    color: #494747;
+    cursor: pointer;
+  }
+}
+
+/* REG OPTION */
+.reg_option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: gray;
+
+  a {
+    color: #a603a6;
+    cursor: pointer;
+    font-style: italic;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
+
+/* LOGIN BUTTON */
+#login-button {
+  width: 200px;
+  outline: none;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #945994;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+

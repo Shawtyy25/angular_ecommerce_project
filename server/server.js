@@ -17,7 +17,7 @@ app.use(express.json());
 const { Client } = pkg;
 
 const client = new Client({
-    user: process.env.DB_USER || 'postgres',
+    user: process.env.DB_USER,
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
     password: `${process.env.DB_PASSWORD}`,
@@ -36,7 +36,7 @@ async function connectToDB() {
 
 connectToDB();
 
-const angularPath = path.join(_dirname, '../ecommerce/src');
+const angularPath = path.join(_dirname, '../ecommerce/dist/ecommerce/browser');
 app.use(express.static(angularPath));
 
 app.get('/', (req, res) => {

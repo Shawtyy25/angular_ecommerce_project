@@ -17,5 +17,11 @@ export const routes: Routes = [
       return import('./registration/registration.component').then(m => m.RegistrationComponent);
     }
   },
+  {
+    path: 'main',
+    loadComponent: () => {
+      return import('./webshop-main/webshop-main.component').then(m => m.WebshopMainComponent);
+    }
+  }
 
 ];

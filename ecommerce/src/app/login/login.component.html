@@ -2,7 +2,9 @@
   <div class="left-side">
     <div class="left-content">
       <h1>Welcome to the webshop!</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eaque eum facilis ipsa? Accusantium aut cupiditate ducimus eaque libero maxime necessitatibus nisi quidem? Alias deserunt dolore ipsum, iure modi sit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eaque eum facilis ipsa? Accusantium aut
+        cupiditate ducimus eaque libero maxime necessitatibus nisi quidem? Alias deserunt dolore ipsum, iure modi
+        sit.</p>
     </div>
   </div>
   <div class="right-side">
@@ -11,16 +13,37 @@
     </div>
     <div class="login-body">
       <div class="username-div">
-        <input type="text" placeholder="Username or Email" name="username" id="username-input" autofocus>
+        <input
+          type="text"
+          placeholder="Username or Email"
+          name="username"
+          id="username-input"
+          autofocus
+          [(ngModel)]="username"
+          appInputError
+          [isValid]="isInputValid"
+          (ngModelChange)="onInputChange()"
+        />
       </div>
 
       <div class="password-div">
-        <input [type]="inputType" placeholder="Password" name="password" id="password-input">
-        <i class="fa-solid" [ngClass]="{'fa-eye-slash': !passVisibilityState, 'fa-eye': passVisibilityState}" id="show" (click)="toggleInputType()"></i>
+        <input
+          [type]="inputType"
+          placeholder="Password"
+          name="password"
+          id="password-input"
+          [(ngModel)]="password"
+          appInputError
+          [isValid]="isInputValid"
+          (ngModelChange)="onInputChange()"
+        />
+
+        <i class="fa-solid" [ngClass]="{'fa-eye-slash': !passVisibilityState, 'fa-eye': passVisibilityState}" id="show"
+           (click)="toggleInputType()"></i>
       </div>
     </div>
     <div class="reg_option" routerLink="/registration">Don't have an account? <a>Registration</a></div>
-    <button id="login-button">Login</button>
+    <button id="login-button" (click)="loginUser()">Login</button>
   </div>
 
 

@@ -1,1 +1,28 @@
-<p>registration works!</p>
+<div class="registration-container">
+  <div class="reg-header">
+    <h1>Registration</h1>
+  </div>
+  <div class="reg-body">
+    <input type="text" placeholder="Username">
+    <input type="text" placeholder="Email">
+    <input type="text" placeholder="Phone">
+    <div class="password-div">
+      <input [type]="inputType" placeholder="Password">
+      <i class="fa-solid" [ngClass]="{'fa-eye-slash': !passVisibilityState, 'fa-eye': passVisibilityState}" id="show" (click)="toggleInputType()"></i>
+    </div>
+
+  </div>
+
+  <div class="reg-check">
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">Lorem ipsum <span>dolor sit amet</span></label>
+  </div>
+  <div class="reg-button-div">
+    <button>Submit</button>
+  </div>
+
+
+</div>
+<footer routerLink='/'>
+  Back to Login <i class="fa-regular fa-circle-right"></i>
+</footer>

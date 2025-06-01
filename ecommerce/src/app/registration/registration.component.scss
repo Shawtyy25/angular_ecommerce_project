@@ -1,0 +1,145 @@
+$bg: #335c73;
+
+
+/* REGISTRATION DIV */
+.registration-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  flex-direction: column;
+  width: 450px;
+  padding: 10px 0;
+  height: 550px;
+
+  /* REGISTRATION HEADER */
+  .reg-header {
+    background: $bg;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+    width: 110%;
+
+
+    &::after, &::before {
+      content: '';
+      position: absolute;
+      top: 90%;
+      width: 20px;
+      height: 20px;
+      background: inherit;
+
+    }
+
+    &::before {
+      left: 0;
+      transform: skewY(45deg);
+    }
+
+    &::after {
+      right: 0;
+      transform: skewY(-45deg);
+    }
+  }
+
+  /* REGISTRATION BODY */
+  .reg-body {
+    display: flex;
+    /*justify-content: center;*/
+    margin-top: 50px;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+
+    input {
+      width: 80%;
+      border-bottom: 2px solid #b0b0b0 !important;
+      border: none;
+      outline: none;
+      padding: 10px;
+      font-size: 1rem;
+
+      &::placeholder {
+        color: #b7b7b7;
+      }
+    }
+
+  }
+}
+
+/* PASSWORD DIV */
+.password-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  i {
+    position: absolute;
+    right: 50px;
+    cursor: pointer;
+  }
+}
+
+/* CHECKBOX DIV */
+.reg-check {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 80%;
+  margin-top: 50px;
+  gap: 10px;
+
+  #checkbox {
+    transform: scale(1.5);
+  }
+
+  label span {
+    color: dodgerblue;
+  }
+}
+
+
+/* REGISTRATION BUTTON */
+.reg-button-div {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 80%;
+
+  button{
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    border: none;
+    outline: none;
+    background: $bg;
+    cursor: pointer;
+    margin-top: 30px;
+    text-align: end;
+
+  }
+}
+
+/* FOOTER */
+footer {
+  background: $bg;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    background-color: #7066c2;
+    font-style: italic;
+  }
+}
+

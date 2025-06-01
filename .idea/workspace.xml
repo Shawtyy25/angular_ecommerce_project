@@ -6,10 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e3de9ab4-0d01-4008-9f14-0320ee52d121" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/registration/registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/registration/registration.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/registration/registration.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/registration/registration.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/registration/registration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/registration/registration.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +51,8 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\munka_sajat\\ANGULAR_LEARNING\\angular_ecommerce_project\\ecommerce\\node_modules\\typescript\\lib&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\munka_sajat\\ANGULAR_LEARNING\\angular_ecommerce_project\\test\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -76,10 +82,22 @@
       <workItem from="1744446416583" duration="4678000" />
       <workItem from="1744451294576" duration="182000" />
       <workItem from="1744456035564" duration="3327000" />
+      <workItem from="1747412114768" duration="607000" />
+      <workItem from="1747676780343" duration="1113000" />
+      <workItem from="1747836031077" duration="23000" />
+      <workItem from="1747843927326" duration="760000" />
+      <workItem from="1748195304478" duration="443000" />
+      <workItem from="1748197059548" duration="1019000" />
+      <workItem from="1748272867970" duration="33000" />
+      <workItem from="1748277686447" duration="2650000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

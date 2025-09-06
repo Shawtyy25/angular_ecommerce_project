@@ -1,0 +1,15 @@
+import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MainService {
+  private url: string = "http://localhost:3300/api/webshop/user/login";
+  constructor(private http: HttpClient) { }
+
+  getUser(): Observable<any> {
+    return this.http.get(this.url);
+  }
+}

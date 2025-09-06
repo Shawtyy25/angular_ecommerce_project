@@ -6,12 +6,20 @@
 
     <div class="center">
       <input type="text"/>
-      <button><!--SEARCH ICON--></button>
+      <button>Search</button>
     </div>
 
     <div class="right">
-      <button><!--LIKE ICON--></button>
+      <button><!--FAVOURITES ICON--></button>
       <button><!--CART ICON--></button>
+    </div>
+    <div class="profile">
+      <i class="fa-solid fa-user"></i>
+      @if (profile === null) {
+          <p>Login/Register</p>
+      } @else {
+        <p>{{ profile }}</p>
+      }
     </div>
   </div>
 </header>

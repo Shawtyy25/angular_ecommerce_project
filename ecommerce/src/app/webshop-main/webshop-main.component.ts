@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {WebshopMainHeaderComponent} from './webshop-main-header/webshop-main-header.component';
-import {AuthService} from '../services/auth.service';
+
+import {MainService} from '../services/main.service';
+import {catchError} from 'rxjs';
 
 @Component({
   selector: 'app-webshop-main',
@@ -10,6 +12,31 @@ import {AuthService} from '../services/auth.service';
   templateUrl: './webshop-main.component.html',
   styleUrl: './webshop-main.component.scss'
 })
-export class WebshopMainComponent {
+export class WebshopMainComponent implements OnInit{
   //TODO
+  constructor(
+    private mainService: MainService
+  ) {}
+
+  user: string | null = null;
+
+
+  ngOnInit(){
+    this.mainService.getUser().subscribe({
+      next: (response): void =>{
+        if (response.length) {
+          this.user = response.text;
+        } else {
+          this.user = null;
+
+        }
+
+      },
+      error: (err) => {
+        console.error(err);
+        this.user = null;
+      }
+
+    })
+  }
 }

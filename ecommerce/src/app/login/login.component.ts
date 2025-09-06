@@ -42,7 +42,8 @@ export class LoginComponent {
       this.loginService.loginCheck(this.username.trim(), this.password.trim()).subscribe({
 
         next: (response) => {
-          if (response.length) {
+          console.log(response)
+          if (response.length > 1) {
             console.log('Found');
             this.isInputValid = true;
             this.router.navigate(['/main']);

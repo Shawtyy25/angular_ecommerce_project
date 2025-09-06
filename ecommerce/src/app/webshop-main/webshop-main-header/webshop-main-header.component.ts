@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-webshop-main-header',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './webshop-main-header.component.scss'
 })
 export class WebshopMainHeaderComponent {
-
+  @Input() profile: string | null = null;
 }

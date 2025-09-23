@@ -23,9 +23,10 @@ export class WebshopMainComponent implements OnInit{
 
   ngOnInit(){
     this.mainService.getUser().subscribe({
-      next: (response): void =>{
-        if (response.length) {
-          this.user = response.text;
+      next: (response): void => {
+        if (response.length > 1) {
+          this.user = response[0].name;
+
         } else {
           this.user = null;
 
@@ -38,5 +39,8 @@ export class WebshopMainComponent implements OnInit{
       }
 
     })
+
+
   }
+
 }

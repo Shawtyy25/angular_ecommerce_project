@@ -128,7 +128,7 @@ app.post('/api/registration', async(req, res) => {
 })
 
 app.get('/api/webshop/user/login', (req, res) => {
-    res.send(loggedInUser);
+    res.send([loggedInUser, 1]);
 })
 
 app.listen(port, () => {

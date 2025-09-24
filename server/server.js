@@ -5,7 +5,7 @@ import pkg from "pg"
 import dotenv from "dotenv"
 import bcrypt from "bcrypt"
 
-let loggedInUser;
+let loggedInUser = null;
 
 dotenv.config({path: './client.env'});
 
@@ -88,6 +88,7 @@ app.post('/api/login', async (req, res) => {
         }
 
         loggedInUser = user;
+        console.log(loggedInUser);
         res.json([{message: 'LOGIN_SUCCESS'}, {user: loggedInUser}]);
     } catch (e) {
         console.error(e);
@@ -125,6 +126,12 @@ app.post('/api/registration', async(req, res) => {
         console.error(e);
         res.status(500).json({ error: 'INTERNAL_ERROR' });
     }
+})
+
+app.post('/api/webshop/logout', (req, res) => {
+    loggedInUser = null;
+    console.log("sikeres törlés");
+    res.json({message: 'Logged out successfully!'});
 })
 
 app.get('/api/webshop/user/login', (req, res) => {

@@ -1,0 +1,26 @@
+<div class="profile">
+  <i class="fa-solid fa-user"></i>
+  @if (profile === null) {
+    <p>Login/Register</p>
+  } @else {
+    <p>{{ profile }}</p>
+  }
+  @if (profile !== null) {
+    <div class="profile-options">
+      <ul>
+        <li>TEST LIST ITEM</li>
+        <hr>
+        <li id="logout" (click)="logoutUser()">Log out</li>
+
+      </ul>
+    </div>
+  } @else {
+    <div class="profile-options">
+      <ul>
+        <li id="login" (click)="moveToLogin()">Login</li>
+
+      </ul>
+    </div>
+  }
+
+</div>

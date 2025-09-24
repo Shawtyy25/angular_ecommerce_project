@@ -1,0 +1,32 @@
+@mixin flex_def {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+// search
+.searchbar-div {
+  @include flex_def;
+
+  #search_bar {
+    width: 50rem;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+  }
+
+  button{
+    padding: 13px 20px;
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+
+  }
+}

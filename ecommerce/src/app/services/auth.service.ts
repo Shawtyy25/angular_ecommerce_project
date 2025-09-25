@@ -2,19 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-interface UserData {
-  name: string,
-  email: string,
-  password: string,
-  admin: boolean,
-}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private apiUrl = 'http://localhost:3300/api/login';
-  private user: UserData | null = null;
 
   constructor(private http: HttpClient) { }
 
@@ -23,12 +17,36 @@ export class AuthService {
     return this.http.post(this.apiUrl, data);
   }
 
-  setUser(loggedInUser: UserData): void {
-    this.user = loggedInUser;
+  setUser(loggedInUser: Array<string | boolean>): void {
+    localStorage.setItem('user', JSON.stringify(loggedInUser));
   }
 
-  isAdmin(): boolean {
-    return !!this.user?.admin;
+  isAdmin2(): boolean {
+    const user: string | null = localStorage.getItem('user');
+
+    if (user) {
+
+      return (JSON.parse(user))[1];
+    }
+
+    return false;
   }
+
+  deleteUser(): void {
+    localStorage.removeItem('user');
+  }
+
+  userAvailable(): boolean {
+    const user: string | null = localStorage.getItem('user');
+    if (user) {
+      return JSON.parse(user);
+    }
+
+    return false;
+  }
+
+
+
+
 
 }

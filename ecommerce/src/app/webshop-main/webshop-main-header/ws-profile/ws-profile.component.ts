@@ -20,8 +20,9 @@ export class WsProfileComponent {
     this.logoutService.logout().subscribe({
       next: (res) => {
         this.user = null;
-
+        this.authService.deleteUser();
         this.router.navigate(['/']);
+
 
       },
 

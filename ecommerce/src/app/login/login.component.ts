@@ -46,9 +46,9 @@ export class LoginComponent {
           if (response.length > 1) {
             this.isInputValid = true;
 
-            this.authService.setUser(response[1].user);
+            this.authService.setUser([response[1].user.name, response[1].user.admin]);
 
-            if (this.authService.isAdmin()) {
+            if (this.authService.isAdmin2()) {
               this.router.navigate(['/admin']);
             } else {
               this.router.navigate(['/main']);

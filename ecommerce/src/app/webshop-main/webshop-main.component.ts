@@ -3,6 +3,7 @@ import {WebshopMainHeaderComponent} from './webshop-main-header/webshop-main-hea
 
 import {MainService} from '../services/main.service';
 import {catchError} from 'rxjs';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-webshop-main',
@@ -15,11 +16,10 @@ import {catchError} from 'rxjs';
 export class WebshopMainComponent implements OnInit{
   //TODO
   constructor(
-    private mainService: MainService
+    private mainService: MainService,
   ) {}
 
   user: string | null = null;
-
 
   ngOnInit(){
     this.mainService.getUser().subscribe({

@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {MainLogoutService} from '../../../services/main.logout.service';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-ws-profile',
@@ -10,7 +11,7 @@ import {MainLogoutService} from '../../../services/main.logout.service';
   styleUrl: './ws-profile.component.scss'
 })
 export class WsProfileComponent {
-  constructor(private router: Router, private logoutService: MainLogoutService) {}
+  constructor(private router: Router, private logoutService: MainLogoutService, private authService: AuthService) {}
 
   @Input() user: string | null = null;
 
@@ -19,6 +20,7 @@ export class WsProfileComponent {
     this.logoutService.logout().subscribe({
       next: (res) => {
         this.user = null;
+
         this.router.navigate(['/']);
 
       },

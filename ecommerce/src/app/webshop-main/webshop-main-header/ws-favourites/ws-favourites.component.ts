@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-ws-favourites',
@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   standalone: true,
 })
 export class WsFavouritesComponent {
-  favcoutner: number = 0;
+  favCounter: number = 0;
+  @Input() user_state: boolean = false;
+
+
 }

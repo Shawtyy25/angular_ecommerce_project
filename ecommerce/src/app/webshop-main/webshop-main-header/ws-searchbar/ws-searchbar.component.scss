@@ -8,10 +8,11 @@
 // search
 .searchbar-div {
   @include flex_def;
+  position: relative;
 
   #search_bar {
     width: 50rem;
-    padding: 10px;
+    padding: 10px 50px;
     border-radius: 5px 0 0 5px;
     outline: none;
     border: none;
@@ -29,4 +30,17 @@
     font-weight: bold;
 
   }
+}
+
+
+//search icon
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 5px;
+  padding: 10px;
+  font-size: 1.2rem;
+
 }

@@ -7,7 +7,9 @@
     <app-ws-searchbar />
 
     <div class="right">
-      <app-ws-favourites />
+      <app-ws-favourites
+        [user_state]="!!profile"
+      />
       <app-ws-cart />
       <app-ws-profile
         [user]="profile"

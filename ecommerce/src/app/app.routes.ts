@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-import {LoginComponent} from './login/login.component';
-import {RegistrationComponent} from './registration/registration.component';
+import {adminGuard} from './guards/admin.guard';
 
 export const routes: Routes = [
   {
@@ -21,6 +20,13 @@ export const routes: Routes = [
     path: 'main',
     loadComponent: () => {
       return import('./webshop-main/webshop-main.component').then(m => m.WebshopMainComponent);
+    }
+  },
+  {
+    path: 'admin',
+    canActivate: [adminGuard],
+    loadComponent: () => {
+      return import('./admin-page/admin-page.component').then(m => m.AdminPageComponent);
     }
   }
 

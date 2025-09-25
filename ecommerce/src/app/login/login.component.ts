@@ -19,8 +19,8 @@ import {InputErrorDirective} from '../directives/input-error.directive';
 })
 export class LoginComponent {
   constructor(
-    private loginService: AuthService,
-    private router: Router
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
   passVisibilityState: boolean =  false;
@@ -39,14 +39,21 @@ export class LoginComponent {
 
   loginUser(): void {
     if (this.username.trim() && this.password.trim()) {
-      this.loginService.loginCheck(this.username.trim(), this.password.trim()).subscribe({
+      this.authService.loginCheck(this.username.trim(), this.password.trim()).subscribe({
 
         next: (response) => {
-          console.log(response)
+          console.log(response);
           if (response.length > 1) {
-            console.log('Found');
             this.isInputValid = true;
-            this.router.navigate(['/main']);
+
+            this.authService.setUser(response[1].user);
+
+            if (this.authService.isAdmin()) {
+              this.router.navigate(['/admin']);
+            } else {
+              this.router.navigate(['/main']);
+            }
+
 
           } else {
             console.error('Not found');

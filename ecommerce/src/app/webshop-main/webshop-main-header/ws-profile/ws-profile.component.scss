@@ -22,15 +22,14 @@
 
   }
 
-
-
   gap: 10px;
   position: relative;
-  padding: 20px;
+  padding: 20px 10px;
 
 
   i {
     color: white;
+    font-size: 1.5rem;
   }
   p {
     font-size: 1.2rem;
@@ -69,9 +68,6 @@
         }
       }
     }
-
-
-
 
   }
 }

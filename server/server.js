@@ -97,7 +97,7 @@ app.post('/api/login', async (req, res) => {
 })
 
 app.post('/api/registration', async(req, res) => {
-    const { u, e, p } = req.body;
+    const { u, e, p} = req.body;
     try {
         const check = await client.query('SELECT * FROM users WHERE name = $1 OR email = $2', [u, e]);
 
@@ -140,4 +140,38 @@ app.get('/api/webshop/user/login', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
+})
+
+// admin registration
+
+app.post('/api/registration/admin', async(req, res) => {
+    const { u, e, p, admin } = req.body;
+    try {
+        const check = await client.query('SELECT * FROM users WHERE name = $1 OR email = $2', [u, e]);
+
+        if (check.rows.length > 0) {
+            const existing = check.rows[0];
+
+            if (existing.name === u) {
+                return res.status(409).json({error: 'USERNAME_EXISTS'});
+            }
+            if (existing.email === e) {
+                return res.status(409).json({error: 'EMAIL_EXISTS'});
+            }
+
+        }
+        const passhash = await bcrypt.hash(p, saltRounds);
+
+
+        await client.query(
+            'INSERT INTO users (name, password, email, admin) VALUES ($1, $2, $3, $4)',
+            [u, passhash, e, admin]
+        );
+
+        res.status(201).json({message: 'USER_CREATED'});
+
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'INTERNAL_ERROR' });
+    }
 })

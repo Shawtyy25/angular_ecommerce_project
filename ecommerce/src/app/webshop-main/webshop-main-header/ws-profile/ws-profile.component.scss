@@ -15,8 +15,19 @@
 
 .profile {
   @include flex_def;
+
+  // open profile options
+  &:hover .profile-options {
+    display: flex;
+
+  }
+
+
+
   gap: 10px;
   position: relative;
+  padding: 20px;
+
 
   i {
     color: white;
@@ -25,20 +36,22 @@
     font-size: 1.2rem;
     font-weight: bold;
   }
-
   cursor: pointer;
 
 
   //profile settings
   .profile-options {
+    @include flex_def;
     @include list_item;
-    top: 200%;
+    top: 100%;
     background-color: #d7d7d7;
     padding: 10px;
     width: 12rem;
     border-radius: 5px;
     box-shadow: 1px 2px 2px #868686;
     flex-direction: column;
+    display: none;
+
 
 
     ul {
@@ -56,5 +69,9 @@
         }
       }
     }
+
+
+
+
   }
 }

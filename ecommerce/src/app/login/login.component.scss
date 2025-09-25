@@ -134,9 +134,22 @@ $inputTest: #eae6ff;
   display: none;
 }
 
+// continue without sign in button
+.continue_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  p {
+    color: blue;
+    cursor: pointer;
 
-
+    &:hover {
+      text-decoration: underline;
+      font-style: italic;
+    }
+  }
+}
 
 
 

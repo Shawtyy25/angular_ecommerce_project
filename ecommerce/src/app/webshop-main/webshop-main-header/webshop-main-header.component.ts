@@ -19,28 +19,6 @@ import {WsProfileComponent} from './ws-profile/ws-profile.component';
   ]
 })
 export class WebshopMainHeaderComponent {
-  constructor(private router: Router, private logoutService: MainLogoutService) {}
-
   @Input() profile: string | null = null;
-
-  logoutUser(): void {
-
-    this.logoutService.logout().subscribe({
-      next: (res) => {
-        this.profile = null;
-        this.router.navigate(['/']);
-
-      },
-
-      error: (err) => {
-        console.error(err);
-      }
-    })
-
-  }
-
-  moveToLogin(): void {
-    this.router.navigate(['/']);
-  }
 
 }

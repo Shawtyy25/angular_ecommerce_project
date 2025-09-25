@@ -12,13 +12,13 @@ import {MainLogoutService} from '../../../services/main.logout.service';
 export class WsProfileComponent {
   constructor(private router: Router, private logoutService: MainLogoutService) {}
 
-  @Input() profile: string | null = null;
+  @Input() user: string | null = null;
 
   logoutUser(): void {
 
     this.logoutService.logout().subscribe({
       next: (res) => {
-        this.profile = null;
+        this.user = null;
         this.router.navigate(['/']);
 
       },

@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './ws-cart.component.scss'
 })
 export class WsCartComponent {
-
+  itemCounter: number = 0;
 }

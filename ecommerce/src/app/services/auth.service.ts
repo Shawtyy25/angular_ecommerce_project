@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,  } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -25,7 +25,8 @@ export class AuthService {
     const user: string | null = localStorage.getItem('user');
 
     if (user) {
-
+      console.log(localStorage.getItem('user'));
+      console.log(JSON.parse(user)[1])
       return (JSON.parse(user))[1];
     }
 

@@ -24,7 +24,12 @@ export class WebshopMainComponent implements OnInit{
   ngOnInit(){
     this.mainService.getUser().subscribe({
       next: (response): void => {
+        // delete localstorage item, if data doesn't match with the server data
+
+        if (!response[0] && localStorage.getItem('user')) localStorage.removeItem('user');
+
         if (response.length > 1) {
+
           this.user = response[0].name;
 
         } else {

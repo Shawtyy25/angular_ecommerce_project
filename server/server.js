@@ -69,22 +69,22 @@ app.get('/api/users', async (req, res) => {
 })
 
 app.post('/api/login', async (req, res) => {
-    const { username, password } = req.body;
+    const {username, password} = req.body;
 
     try {
         const result = await client.query(
             'SELECT * FROM users WHERE name = $1 OR email = $1',
-            [ username ]
+            [username]
         );
 
-        if (result.rows.length === 0) return res.status(401).json({ error: 'INVALID_CREDENTIALS '});
+        if (result.rows.length === 0) return res.status(401).json({error: 'INVALID_CREDENTIALS '});
 
         const user = result.rows[0];
 
         const match = await bcrypt.compare(password, user.password);
 
         if (!match) {
-            return res.json({ error: 'INVALID_CREDENTIALS' });
+            return res.json({error: 'INVALID_CREDENTIALS'});
         }
 
         loggedInUser = user;
@@ -92,12 +92,12 @@ app.post('/api/login', async (req, res) => {
         res.json([{message: 'LOGIN_SUCCESS'}, {user: loggedInUser}]);
     } catch (e) {
         console.error(e);
-        res.json({ error: 'INTERNAL_ERROR '});
+        res.json({error: 'INTERNAL_ERROR '});
     }
 })
 
-app.post('/api/registration', async(req, res) => {
-    const { u, e, p} = req.body;
+app.post('/api/registration', async (req, res) => {
+    const {u, e, p} = req.body;
     try {
         const check = await client.query('SELECT * FROM users WHERE name = $1 OR email = $2', [u, e]);
 
@@ -124,7 +124,7 @@ app.post('/api/registration', async(req, res) => {
 
     } catch (e) {
         console.error(e);
-        res.status(500).json({ error: 'INTERNAL_ERROR' });
+        res.status(500).json({error: 'INTERNAL_ERROR'});
     }
 })
 
@@ -144,8 +144,8 @@ app.listen(port, () => {
 
 // admin registration
 
-app.post('/api/registration/admin', async(req, res) => {
-    const { u, e, p, admin } = req.body;
+app.post('/api/registration/admin', async (req, res) => {
+    const {u, e, p, admin} = req.body;
     try {
         const check = await client.query('SELECT * FROM users WHERE name = $1 OR email = $2', [u, e]);
 
@@ -172,6 +172,6 @@ app.post('/api/registration/admin', async(req, res) => {
 
     } catch (e) {
         console.error(e);
-        res.status(500).json({ error: 'INTERNAL_ERROR' });
+        res.status(500).json({error: 'INTERNAL_ERROR'});
     }
 })

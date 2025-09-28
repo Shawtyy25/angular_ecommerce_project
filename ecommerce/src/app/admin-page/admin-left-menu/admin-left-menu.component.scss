@@ -1,13 +1,14 @@
 .left {
-  background-color: #dcdcdc;
+  background-color: #14263a;
   display: flex;
-  width: 18%;
+  color: white;
   height: 100%;
   flex-direction: column;
   box-shadow: 2px 0 10px black ;
+  width: 250px;
 
   hr {
-    border-top: 2px solid black;
+    border: 1px solid #f37a03;
 
   }
 
@@ -32,10 +33,14 @@
   cursor: pointer;
   border-radius: 5px;
   &:hover {
-    background-color: rgba(191, 240, 246, 0.4);
+    background-color: rgba(100, 156, 227, 0.4);
     box-shadow: 0 .5px 3px #000 inset,
                 0 .5px 0 #000;
   }
+}
+
+.products-div {
+
 }
 
 

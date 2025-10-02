@@ -1,15 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AdminLeftMenuComponent} from './admin-left-menu/admin-left-menu.component';
 import {AdminHeaderComponent} from './admin-header/admin-header.component';
-import {AdminMainComponent} from './admin-main/admin-main.component';
 import {AuthService} from '../services/auth.service';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
   imports: [
     AdminLeftMenuComponent,
     AdminHeaderComponent,
-    AdminMainComponent
+    RouterOutlet
   ],
   templateUrl: './admin-page.component.html',
   styleUrl: './admin-page.component.scss',
@@ -24,5 +24,6 @@ export class AdminPageComponent implements OnInit{
 
     this.a_user = this.authService.getAdminUser();
     console.log(this.a_user)
+
   }
 }

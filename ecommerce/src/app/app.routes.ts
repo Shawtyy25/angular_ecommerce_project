@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import {adminGuard} from './guards/admin.guard';
 import {userGuard} from './guards/user.guard';
+import {AdminMDashboardComponent} from './admin-page/admin-m-dashboard/admin-m-dashboard.component';
+import {AdminMProductsComponent} from './admin-page/admin-m-products/admin-m-products.component';
+import {AdminPageComponent} from './admin-page/admin-page.component';
 
 export const routes: Routes = [
   {
@@ -29,7 +32,15 @@ export const routes: Routes = [
     canActivate: [adminGuard],
     loadComponent: () => {
       return import('./admin-page/admin-page.component').then(m => m.AdminPageComponent);
-    }
-  }
+    },
+
+    children: [
+      { path: 'dashboard', component: AdminMDashboardComponent, data: { title: 'Dashboard'} },
+      { path: 'products', component: AdminMProductsComponent, data: { title: 'Products' }},
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ]
+  },
+
+
 
 ];

@@ -2,14 +2,14 @@
   <h1>Webshop</h1>
   <hr>
 
-  <div class="dashboard-div item">
+  <div class="dashboard-div item" routerLink="/admin/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
     <i class="fa-solid fa-house"></i>
-    <p>Dashboard</p>
+    <p >Dashboard</p>
   </div>
 
-  <div class="products-div item">
+  <div class="products-div item" routerLink="/admin/products" routerLinkActive="active">
     <i class="fa-solid fa-cart-shopping"></i>
-    <p>Products</p>
+    <p >Products</p>
   </div>
 
 </div>

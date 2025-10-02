@@ -175,3 +175,17 @@ app.post('/api/registration/admin', async (req, res) => {
         res.status(500).json({error: 'INTERNAL_ERROR'});
     }
 })
+
+
+// admin API
+
+//users count
+app.get('/api/admin/users/count', async (req, res) => {
+    try {
+        const result = await client.query('SELECT count(*) AS user_count FROM users');
+        res.json({count: result.rows[0].user_count});
+    } catch (e) {
+        console.error(e)
+        res.send('INTERNAL ERROR!');
+    }
+})

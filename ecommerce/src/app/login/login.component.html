@@ -14,6 +14,7 @@
     <div class="login-body">
       <div class="username-div">
         <input
+          #usernameInput
           type="text"
           placeholder="Username or Email"
           name="username"
@@ -36,6 +37,7 @@
           appInputError
           [isValid]="isInputValid"
           (ngModelChange)="onInputChange()"
+          (keyup.enter)="loginUser(); usernameInput.focus()"
         />
 
         <i class="fa-solid" [ngClass]="{'fa-eye-slash': !passVisibilityState, 'fa-eye': passVisibilityState}" id="show"
@@ -43,7 +45,7 @@
       </div>
     </div>
     <div class="reg_option" routerLink="/registration">Don't have an account? <a>Registration</a></div>
-    <button id="login-button" (click)="loginUser()">Login</button>
+    <button id="login-button" (click)="loginUser(); usernameInput.focus()">Login</button>
     <div class="continue_to" routerLink="/main">
       <p>Continue without login</p>
     </div>

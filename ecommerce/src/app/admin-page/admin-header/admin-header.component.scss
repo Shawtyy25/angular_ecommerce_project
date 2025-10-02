@@ -6,6 +6,7 @@
   align-items: center;
   background-color: #16283c;
   color: white;
+  border-bottom: 3px solid #484848;
 }
 
 // searchbar
@@ -47,6 +48,10 @@
   align-items: center;
   height: 100%;
   gap: 10px;
+
+  h1 {
+    width: 250px;
+  }
 }
 
 .left-theme {
@@ -61,6 +66,8 @@
   justify-content: center;
   align-items: center;
   width: 200px;
+  cursor: pointer;
+  position: relative;
 
 
   .profile {
@@ -75,4 +82,35 @@
 
     }
   }
+}
+
+.logout-div {
+  opacity: 0;
+  position: absolute;
+  transform: translateX(50px);
+  transition: transform .3s ease, opacity .3s ease;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  i {
+    font-size: 1.5rem;
+  }
+
+}
+
+// hover effect (right-theme)
+.right-theme:hover {
+  background-image: linear-gradient(to right, #fd8c4b, #ee6200);
+
+  .profile {display: none}
+  .logout-div {
+    transition-delay: .1s;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
 }

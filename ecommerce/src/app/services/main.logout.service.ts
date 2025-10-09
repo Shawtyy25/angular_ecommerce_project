@@ -10,7 +10,7 @@ interface logoutResponse {
   providedIn: 'root'
 })
 export class MainLogoutService {
-  private url: string = 'http://localhost:3300/api/webshop/logout';
+  private url: string = 'http://localhost:3300/users/logout';
   constructor(private http: HttpClient) { }
 
   logout(): Observable<logoutResponse> {

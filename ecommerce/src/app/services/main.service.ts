@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class MainService {
-  private url: string = "http://localhost:3300/api/webshop/user/login";
+  private url: string = "http://localhost:3300/users/current";
   constructor(private http: HttpClient) { }
 
   getUser(): Observable<any> {

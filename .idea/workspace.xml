@@ -5,22 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3de9ab4-0d01-4008-9f14-0320ee52d121" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/server/nest-backend/src/users/user.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-header/admin-header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-header/admin-header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-header/admin-header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-header/admin-header.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-header/admin-header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-header/admin-header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-left-menu/admin-left-menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-left-menu/admin-left-menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-left-menu/admin-left-menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-left-menu/admin-left-menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-main/admin-main.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-main/admin-main.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-main/admin-main.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-main/admin-main.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/assets/template/admin-page-template.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-m-products/admin-m-products.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-m-products/admin-m-products.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-m-products/filter-settings/filter-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-m-products/filter-settings/filter-settings.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-m-products/filter-settings/filter-settings.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/admin-page/admin-m-products/filter-settings/filter-settings.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/services/admin/statistics.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/services/admin/statistics.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/services/main.logout.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/services/main.logout.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/services/main.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/services/main.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/client.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/client.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,30 +45,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.server.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "datagrid.heatmap.switchedByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/munka_sajat/ANGULAR_LEARNING/angular_ecommerce_project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "database.output.results",
-    "ts.external.directory.path": "C:\\munka_sajat\\ANGULAR_LEARNING\\angular_ecommerce_project\\test\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;datagrid.heatmap.switchedByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/munka_sajat/ANGULAR_LEARNING/angular_ecommerce_project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.output.results&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\munka_sajat\\ANGULAR_LEARNING\\angular_ecommerce_project\\test\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\munka_sajat\ANGULAR_LEARNING\angular_ecommerce_project\server" />

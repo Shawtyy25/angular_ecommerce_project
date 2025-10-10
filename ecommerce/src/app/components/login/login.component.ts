@@ -1,9 +1,9 @@
 import {Component, input} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {NgClass} from '@angular/common';
-import {AuthService} from '../services/auth.service';
+import {AuthService} from '../../services/auth.service';
 import {FormsModule} from '@angular/forms';
-import {InputErrorDirective} from '../directives/input-error.directive';
+import {InputErrorDirective} from '../../directives/input-error.directive';
 
 
 @Component({

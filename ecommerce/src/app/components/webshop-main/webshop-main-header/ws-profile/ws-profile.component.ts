@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
-import {MainLogoutService} from '../../../services/main.logout.service';
-import {AuthService} from '../../../services/auth.service';
+import {MainLogoutService} from '../../../../services/main.logout.service';
+import {AuthService} from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-ws-profile',

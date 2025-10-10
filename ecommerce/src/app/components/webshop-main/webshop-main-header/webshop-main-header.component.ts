@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
-import {MainLogoutService} from '../../services/main.logout.service';
+import {MainLogoutService} from '../../../services/main.logout.service';
 import {WsSearchbarComponent} from './ws-searchbar/ws-searchbar.component';
 import {WsFavouritesComponent} from './ws-favourites/ws-favourites.component';
 import {WsCartComponent} from './ws-cart/ws-cart.component';

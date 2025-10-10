@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {filter, map} from 'rxjs';
-import {MainLogoutService} from '../../services/main.logout.service';
-import {AuthService} from '../../services/auth.service';
+import {MainLogoutService} from '../../../services/main.logout.service';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-admin-header',

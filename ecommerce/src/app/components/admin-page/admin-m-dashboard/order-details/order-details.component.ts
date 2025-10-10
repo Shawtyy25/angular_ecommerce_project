@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminService} from '../../../services/admin/statistics.service';
+import {AdminService} from '../../../../services/admin/statistics.service';
 import {HttpClient} from '@angular/common/http';
 
 @Component({

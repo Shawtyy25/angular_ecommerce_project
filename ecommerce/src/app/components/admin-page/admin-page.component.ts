@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AdminLeftMenuComponent} from './admin-left-menu/admin-left-menu.component';
 import {AdminHeaderComponent} from './admin-header/admin-header.component';
-import {AuthService} from '../services/auth.service';
+import {AuthService} from '../../services/auth.service';
 import {RouterOutlet} from '@angular/router';
 
 @Component({

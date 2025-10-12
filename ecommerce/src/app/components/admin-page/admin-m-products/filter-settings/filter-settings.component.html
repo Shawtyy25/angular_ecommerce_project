@@ -1,10 +1,17 @@
 <div class="filter-div">
   <div class="header">
     <p>Filters</p>
-    <a>Clear All</a>
+    <a (click)="clearSelected()">Clear All</a>
   </div>
   <div class="content">
     <!--TODO-->
     <p>Products</p>
+    <p-tree
+      [value]="filterData()"
+      class="filter-tree"
+      selectionMode="multiple"
+      [(selection)]="selectedNode"
+      style="color: black;"
+    />
   </div>
 </div>

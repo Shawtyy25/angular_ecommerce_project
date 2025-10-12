@@ -1,9 +1,11 @@
-import {Component, input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {NgClass} from '@angular/common';
 import {AuthService} from '../../services/auth.service';
 import {FormsModule} from '@angular/forms';
 import {InputErrorDirective} from '../../directives/input-error.directive';
+import {FloatLabel} from 'primeng/floatlabel';
+import {InputText} from 'primeng/inputtext';
 
 
 @Component({
@@ -13,6 +15,8 @@ import {InputErrorDirective} from '../../directives/input-error.directive';
     NgClass,
     FormsModule,
     InputErrorDirective,
+    FloatLabel,
+    InputText,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

@@ -1,3 +1,44 @@
+// p-tree customization
+:host ::ng-deep .filter-tree {
+  background: transparent;
+  width: 100%;
+
+  .p-tree-node-label {
+    color: black;
+
+
+  }
+
+  .p-tree-node-icon {
+    color: #343434 !important;
+  }
+
+  .p-tree-node-content:hover {
+    background-color: #cecece !important;
+
+  }
+
+  .p-tree-node-toggle-button {
+    color: #313131;
+
+    &:hover {
+      background-color: #919090;
+      color: white;
+    }
+  }
+
+  .p-tree-node-selected {
+    background-color: #b4b2b2 !important;
+
+    button:hover {
+      color: white;
+    }
+  }
+
+}
+
+
+
 .filter-div{
   display: flex;
   justify-content: center;
@@ -6,6 +47,7 @@
   width: 350px;
   margin: 0 2rem 0 0;
   flex-direction: column;
+  color: black !important;
 }
 
 //header
@@ -38,4 +80,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  border: 1px solid black;
+
 }
+
+
+

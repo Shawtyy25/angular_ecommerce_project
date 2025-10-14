@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {Button, ButtonDirective} from "primeng/button";
 import {DataView} from "primeng/dataview";
 import {Tag} from "primeng/tag";
@@ -6,17 +6,39 @@ import {NgClass} from '@angular/common';
 import {PrimeTemplate} from 'primeng/api';
 import {SelectButton} from 'primeng/selectbutton';
 import {FormsModule} from '@angular/forms';
+import {ProductsService} from '../../services/admin/products.service';
+
+export interface Product {
+  id: number,
+  pName: string,
+  pDesc: string | null,
+  cName: string,
+  icon: string | null,
+  pricing: Price,
+  attachments: Attachment[]
+
+}
+
+export interface Price {
+  price: number,
+  validFrom: number,
+  validTo: number | null
+}
+
+export interface Attachment {
+  src: string,
+  altText: string,
+}
+
 
 
 
 @Component({
   selector: 'app-admin-card-template',
   imports: [
-    Button,
     DataView,
     Tag,
     NgClass,
-    PrimeTemplate,
     SelectButton,
     ButtonDirective,
     FormsModule,
@@ -24,10 +46,51 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './admin-card-template.component.html',
   styleUrl: './admin-card-template.component.scss'
 })
-export class AdminCardTemplateComponent {
+export class AdminCardTemplateComponent implements OnInit{
+
+  constructor(private productService: ProductsService) {}
+
+  ngOnInit() {
+    this.productService.getProducts().subscribe({
+      next: value => {
+        console.log(value)
+        this.products.set(value as Product[]);
+      },
+      error: err => console.error(err),
+    });
+  }
+
   layout: 'list' | 'grid' = 'grid';
   options: string[] = ['list', 'grid'];
-  products = signal<any>([
+  products = signal<Product[] | undefined>(undefined);
+
+
+
+  getSeverity(product: any) {
+    switch (product.inventoryStatus) {
+      case 'INSTOCK':
+        return 'success';
+
+      case 'LOWSTOCK':
+        return 'warn';
+
+      case 'OUTOFSTOCK':
+        return 'danger';
+
+      default:
+        return null;
+    }
+  }
+
+}
+
+
+
+
+
+
+/*
+* products = signal<any>([
     {
       id: '1000',
       code: 'f230fh0g3',
@@ -36,8 +99,8 @@ export class AdminCardTemplateComponent {
       image: 'bamboo-watch.jpg',
       price: 65,
       category: 'Accessories',
-      quantity: 24,
-      inventoryStatus: 'INSTOCK',
+      quantity: 0,
+      inventoryStatus: 'OUTOFSTOCK',
       rating: 5
     },
     {
@@ -160,23 +223,4 @@ export class AdminCardTemplateComponent {
       inventoryStatus: 'INSTOCK',
       rating: 5
     },
-  ]);
-
-
-  getSeverity(product: any) {
-    switch (product.inventoryStatus) {
-      case 'INSTOCK':
-        return 'success';
-
-      case 'LOWSTOCK':
-        return 'warn';
-
-      case 'OUTOFSTOCK':
-        return 'danger';
-
-      default:
-        return null;
-    }
-  }
-
-}
+  ]);*/

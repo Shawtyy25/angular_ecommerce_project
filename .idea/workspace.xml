@@ -5,21 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3de9ab4-0d01-4008-9f14-0320ee52d121" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/server/nest-backend/src/admin/product/product.entity.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/nest-backend/src/categories/categories.entity.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/nest-backend/src/users/user.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/components/admin-page/admin-m-products/filter-settings/filter-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/components/admin-page/admin-m-products/filter-settings/filter-settings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/components/admin-page/admin-m-products/filter-settings/filter-settings.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/components/admin-page/admin-m-products/filter-settings/filter-settings.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/components/admin-page/admin-m-products/filter-settings/filter-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/components/admin-page/admin-m-products/filter-settings/filter-settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/components/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/components/login/login.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/components/webshop-main/webshop-main-header/ws-searchbar/ws-searchbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/components/webshop-main/webshop-main-header/ws-searchbar/ws-searchbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/admin-card-template.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/admin-card-template.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/admin-card-template.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/admin-card-template.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/admin-card-template.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/admin-card-template.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/assets/img/lg_ultragear_24gs60fb_0.webp" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/assets/images/lg_ultragear_24gs60fb_0.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/assets/img/lg_ultragear_24gs60fb_1.webp" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/assets/images/lg_ultragear_24gs60fb_1.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/src/assets/img/lg_ultragear_24gs60fb_2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/assets/images/lg_ultragear_24gs60fb_2.webp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,5 +1,52 @@
 .card {
   width: 100%;
   height: 100%;
-  border: 2px solid black;
+  color:black !important;
+  padding: 5px;
 }
+
+:host ::ng-deep .p-dataview-header {
+  border: none;
+}
+
+:host ::ng-deep .p-dataview {
+  border: none;
+  background-color: transparent;
+
+  &-paginator-bottom {
+    border: none;
+  }
+
+  button {
+    background-color: #14263a;
+    color: white;
+
+    &:hover {
+      background-color: #2f588a;
+      color: white !important;
+    }
+  }
+
+
+}
+
+:host ::ng-deep .p-paginator{
+  &-page-selected {
+    background-color: #14263a;
+  }
+}
+div {
+  border: none;
+}
+
+
+.card-each {
+  box-shadow: 0 0 2px 1px gray;
+  padding: 10px;
+
+  &:hover {
+    box-shadow: 0 0 5px 1px gray;
+  }
+}
+
+

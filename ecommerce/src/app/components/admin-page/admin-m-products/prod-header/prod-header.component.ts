@@ -7,6 +7,7 @@ import {DialogService} from '../../../../services/admin/dialog.service';
 import {
   NewProductPopupTemplateComponent
 } from '../../../../beta/admin-card-template/new-product-popup-template/new-product-popup-template.component';
+import {skip} from 'rxjs';
 
 @Component({
   selector: 'app-prod-header',
@@ -23,10 +24,14 @@ import {
   styleUrl: './prod-header.component.scss'
 })
 export class ProdHeaderComponent {
+
   constructor(private dialogService: DialogService) {
-    this.dialogService.visible$.subscribe(state => this.dialogVisible = state);
+    this.dialogService.visible$
+      .pipe(skip(1))
+      .subscribe(state => this.dialogVisible = state)
   }
   dialogVisible: boolean = false;
+
 
   showDialog() {
     this.dialogService.show();

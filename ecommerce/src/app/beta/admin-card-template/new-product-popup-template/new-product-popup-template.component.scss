@@ -1,4 +1,38 @@
 :host ::ng-deep .p-dialog {
   background-color: #eeeeee !important;
   color: black !important;
+  border-radius: 5px;
+
+}
+
+
+:host ::ng-deep .p-inputtext {
+  box-shadow: 0 0 2px 1px #5b5b5b !important;
+  border-radius: 0;
+
+  &:hover {
+    box-shadow: 0 0 1px 2px #282828 !important;
+  }
+
+  &:focus {
+    box-shadow: 0 0 1px 2px #282828 !important;
+
+    & + label {
+      background-color: #eeeeee !important;
+    }
+  }
+
+  &.p-filled {
+    box-shadow: 0 0 1px 2px #282828 !important;
+    & + label {
+      background-color: #eeeeee !important;
+    }
+  }
+
+
+
+}
+
+.content {
+  padding: 10px;
 }

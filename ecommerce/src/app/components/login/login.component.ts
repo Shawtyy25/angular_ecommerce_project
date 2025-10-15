@@ -15,8 +15,6 @@ import {InputText} from 'primeng/inputtext';
     NgClass,
     FormsModule,
     InputErrorDirective,
-    FloatLabel,
-    InputText,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

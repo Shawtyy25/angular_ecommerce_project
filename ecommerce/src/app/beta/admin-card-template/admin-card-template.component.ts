@@ -8,30 +8,6 @@ import {SelectButton} from 'primeng/selectbutton';
 import {FormsModule} from '@angular/forms';
 import {ProductsService} from '../../services/admin/products.service';
 
-export interface Product {
-  id: number,
-  pName: string,
-  pDesc: string | null,
-  cName: string,
-  icon: string | null,
-  pricing: Price,
-  attachments: Attachment[]
-
-}
-
-export interface Price {
-  price: number,
-  validFrom: number,
-  validTo: number | null
-}
-
-export interface Attachment {
-  src: string,
-  altText: string,
-}
-
-
-
 
 @Component({
   selector: 'app-admin-card-template',
@@ -44,53 +20,14 @@ export interface Attachment {
     FormsModule,
   ],
   templateUrl: './admin-card-template.component.html',
-  styleUrl: './admin-card-template.component.scss'
+  styleUrl: './admin-card-template.component.scss',
+  standalone: true,
 })
-export class AdminCardTemplateComponent implements OnInit{
+export class AdminCardTemplateComponent {
 
-  constructor(private productService: ProductsService) {}
-
-  ngOnInit() {
-    this.productService.getProducts().subscribe({
-      next: value => {
-        console.log(value)
-        this.products.set(value as Product[]);
-      },
-      error: err => console.error(err),
-    });
-  }
-
-  layout: 'list' | 'grid' = 'grid';
-  options: string[] = ['list', 'grid'];
-  products = signal<Product[] | undefined>(undefined);
-
-
-
-  getSeverity(product: any) {
-    switch (product.inventoryStatus) {
-      case 'INSTOCK':
-        return 'success';
-
-      case 'LOWSTOCK':
-        return 'warn';
-
-      case 'OUTOFSTOCK':
-        return 'danger';
-
-      default:
-        return null;
-    }
-  }
-
-}
-
-
-
-
-
-
-/*
-* products = signal<any>([
+  layoutTemp: 'list' | 'grid' = 'grid';
+  optionsTemp: string[] = ['list', 'grid'];
+  productsTemp = signal<any>([
     {
       id: '1000',
       code: 'f230fh0g3',
@@ -223,4 +160,14 @@ export class AdminCardTemplateComponent implements OnInit{
       inventoryStatus: 'INSTOCK',
       rating: 5
     },
-  ]);*/
+  ]);
+
+
+}
+
+
+
+
+
+
+

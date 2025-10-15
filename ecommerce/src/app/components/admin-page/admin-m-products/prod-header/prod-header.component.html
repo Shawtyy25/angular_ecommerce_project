@@ -1,1 +1,16 @@
-<p>prod-header works!</p>
+@if (dialogVisible) {
+  <app-new-product-popup-template />
+}
+
+<div class="header flex justify-between ">
+
+  <button pButton (click)="showDialog()">
+    <i class="pi pi-plus " pButtonIcon></i>
+    <span pButtonLabel>Add Product</span>
+  </button>
+
+  <p-icon-field class="bg-gray-200 border-black border-1 text-black">
+    <p-inputicon class="pi pi-search" />
+    <input type="text" pInputText placeholder="Search" />
+  </p-icon-field>
+</div>

@@ -2,6 +2,7 @@ $input-bg: #f8fafb;
 $input-box-shadow: 0 0 2px 1px #d7d7d7 !important;
 $input-hover-box-shadow: 0 0 1px 2px #c9c9c9 !important;
 $label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important;
+$width-full: 100% !important;
 
 :host ::ng-deep .p-dialog {
   background-color: #eeeeee !important;
@@ -10,7 +11,7 @@ $label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important
 
 }
 
-:host ::ng-deep .p-button-rounded {
+::ng-deep .p-button-rounded {
   &:hover {
     background-color: #e1e1e1 !important;
     color: #b00000 !important;
@@ -83,8 +84,24 @@ h1 {
 }
 
 :host ::ng-deep .p-datepicker {
+  width: $width-full;
   &-input {
-    width: 100% !important;
+    width: $width-full;
   }
+
+  &-panel {
+    background-color: #f3f3f3 !important;
+    box-shadow: $input-box-shadow;
+  }
+
+  .p-button-rounded {
+    &:hover {
+      background-color: #e1e1e1 !important;
+      color: black !important;
+    }
+  }
+
 }
+
+
 

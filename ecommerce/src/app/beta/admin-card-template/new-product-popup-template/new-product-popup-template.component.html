@@ -7,7 +7,9 @@
   [draggable]="false"
   [resizable]="false"
 >
-  <div class="content grid grid-cols-12 gap-7 ">
+  <div class="content grid grid-cols-12 gap-7">
+
+    <!--LEFT SIDE-->
     <div class="left col-span-12 lg:col-span-7 flex flex-col gap-8">
 
       <!--GENERAL INFORMATION (NAME DESC) DIV-->
@@ -35,14 +37,72 @@
         </div>
 
         <div class="date-picker-div grid grid-cols-12 gap-5">
-          <p-date-picker [(ngModel)]="price_valid_from" [showButtonBar]="true" placeholder="Valid From" class="col-span-6 " [dateFormat]="huDateFormat"/>
-          <p-date-picker [(ngModel)]="price_valid_to" [showButtonBar]="true" placeholder="Valid To"  class="col-span-6 " [dateFormat]="huDateFormat"/>
+          <p-floatlabel variant="in" class="col-span-6 ">
+            <p-date-picker [(ngModel)]="price_valid_from" inputId="price_vf" showIcon iconDisplay="input" [dateFormat]="huDateFormat"/>
+            <label for="price_vf">Valid From</label>
+          </p-floatlabel>
+          <p-floatlabel variant="in" class="col-span-6">
+            <p-date-picker [(ngModel)]="price_valid_to" inputId="price_vt" showIcon iconDisplay="input" [dateFormat]="huDateFormat"/>
+            <label for="price_vt">Valid To</label>
+          </p-floatlabel>
+
         </div>
 
       </div>
     </div>
 
 
+    <!--RIGHT SIDE-->
+    <div class="right col-span-12 lg:col-span-5 flex flex-col gap-8" >
+
+
+      <div class="wrapper product-media-div gap-4 flex flex-col " >
+        <h1>Product Media</h1>
+
+        <div class="product-media-wrapper">
+          <h4 style="font-weight: lighter; color: gray;">Product Photos</h4>
+
+          <div class="media-div border-dashed border-2 border-black-100 gap-5 flex flex-col items-center  ">
+
+            <div class="image grid grid-cols-12 gap-2 " style="padding: 1rem">
+              @if (!img_sources.length) {
+                <p class="col-span-12 w-full text-center">Nothing Here</p>
+              } @else {
+                @for (img of img_sources; track img) {
+                  <p-image
+                    [src]="img"
+                    alt="Image"
+                    width="250"
+                    class="col-span-4"
+
+                  />
+                }
+              }
+            </div>
+
+
+            <p-fileupload
+              mode="basic"
+              name="attachments[]"
+              chooseIcon="pi pi-upload"
+              accept="image/*"
+              maxFileSize="10000000"
+              url="https://www.primefaces.org/cdn/api/upload.php"
+              (onUpload)="uploadImageSource($event)"
+              [auto]="true"
+              chooseLabel="Add More Image"
+            />
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+    </div>
 
   </div>
 

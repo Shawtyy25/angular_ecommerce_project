@@ -7,6 +7,15 @@ import {FormsModule} from '@angular/forms';
 import {Textarea} from 'primeng/textarea';
 import {InputNumber} from 'primeng/inputnumber';
 import {DatePicker} from 'primeng/datepicker';
+import {FileUpload} from 'primeng/fileupload';
+import {Image} from 'primeng/image';
+
+interface FileUploadEvent {
+  originalEvent: Event;
+  files: File[]
+}
+
+
 
 @Component({
   selector: 'app-new-product-popup-template',
@@ -18,16 +27,13 @@ import {DatePicker} from 'primeng/datepicker';
     Textarea,
     InputNumber,
     DatePicker,
+    FileUpload,
+    Image,
   ],
   templateUrl: './new-product-popup-template.component.html',
   styleUrl: './new-product-popup-template.component.scss'
 })
 export class NewProductPopupTemplateComponent {
-  constructor(private dialogService: DialogService) {
-    this.dialogService.visible$.subscribe(state => this.visible = state);
-
-  }
-
   visible: boolean = false;
 
   productName: string = '';
@@ -36,5 +42,25 @@ export class NewProductPopupTemplateComponent {
   price_valid_from: Date | undefined;
   price_valid_to: Date | undefined;
   readonly huDateFormat: string = 'yy/mm/dd';
+  img_sources: string[] = [];
 
+  constructor(private dialogService: DialogService) {
+    this.dialogService.visible$.subscribe(state => this.visible = state);
+
+  }
+
+  uploadImageSource(event: any): void {
+    for (let file of event.files) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.img_sources.push(e.target.result);
+      }
+
+      reader.readAsDataURL(file);
+
+      console.log(file)
+    }
+
+  }
 }

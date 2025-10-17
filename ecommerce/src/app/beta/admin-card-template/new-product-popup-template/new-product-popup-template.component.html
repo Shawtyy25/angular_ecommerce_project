@@ -3,15 +3,47 @@
   [(visible)]="visible"
   [modal]="true"
   [breakpoints]="{'1199px': '75vw', '575px': '90vw' }"
-  [style]="{ width: '65vw' }"
+  [style]="{ width: '70vw' }"
   [draggable]="false"
   [resizable]="false"
 >
-  <div class="content flex ">
-    <p-float-label variant="on" class="bg-gray-250" >
-      <input pInputText id="on_label" [(ngModel)]="productName" autocomplete="off" />
-      <label for="on_label">Product name</label>
-    </p-float-label>
+  <div class="content grid grid-cols-12 gap-7 ">
+    <div class="left col-span-12 lg:col-span-7 flex flex-col gap-8">
+
+      <!--GENERAL INFORMATION (NAME DESC) DIV-->
+      <div class="general-inf flex flex-col gap-5 wrapper ">
+        <h1>General information</h1>
+        <p-float-label variant="on" class="bg-gray-250 " >
+          <input pInputText id="product-name" [(ngModel)]="productName" autocomplete="off" class="w-full" />
+          <label for="product-name">Product name</label>
+        </p-float-label>
+
+        <p-floatlabel variant="in">
+          <textarea pTextarea id="over_label" [(ngModel)]="productDesc" rows="5" cols="30" style="resize: none" class="h-full w-full" maxlength="255"></textarea>
+          <label for="in_label">Description</label>
+        </p-floatlabel>
+      </div>
+
+      <!--PRICING DIV-->
+      <div class="pricing flex flex-col gap-5 wrapper">
+        <h1>Pricing</h1>
+        <div class="price-div flex flex-col">
+          <p-floatlabel variant="on" >
+            <p-inputNumber [(ngModel)]="price" inputId="price" mode="currency" currency="HUF" locale="hu-HU" [minFractionDigits]="0" [maxFractionDigits]="0"  class="w-full"/>
+            <label for="price">Price</label>
+          </p-floatlabel>
+        </div>
+
+        <div class="date-picker-div grid grid-cols-12 gap-5">
+          <p-date-picker [(ngModel)]="price_valid_from" [showButtonBar]="true" placeholder="Valid From" class="col-span-6 " [dateFormat]="huDateFormat"/>
+          <p-date-picker [(ngModel)]="price_valid_to" [showButtonBar]="true" placeholder="Valid To"  class="col-span-6 " [dateFormat]="huDateFormat"/>
+        </div>
+
+      </div>
+    </div>
+
+
+
   </div>
 
 </p-dialog>

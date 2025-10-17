@@ -1,3 +1,8 @@
+$input-bg: #f8fafb;
+$input-box-shadow: 0 0 2px 1px #d7d7d7 !important;
+$input-hover-box-shadow: 0 0 1px 2px #c9c9c9 !important;
+$label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important;
+
 :host ::ng-deep .p-dialog {
   background-color: #eeeeee !important;
   color: black !important;
@@ -5,34 +10,81 @@
 
 }
 
+:host ::ng-deep .p-button-rounded {
+  &:hover {
+    background-color: #e1e1e1 !important;
+    color: #b00000 !important;
+  }
+}
+
 
 :host ::ng-deep .p-inputtext {
-  box-shadow: 0 0 2px 1px #5b5b5b !important;
-  border-radius: 0;
+  /*box-shadow: 0 0 2px 1px #d7d7d7 !important;*/
+  box-shadow: $input-box-shadow;
+  border-radius: 5px;
+  background-color: $input-bg;
 
   &:hover {
-    box-shadow: 0 0 1px 2px #282828 !important;
+    box-shadow: $input-hover-box-shadow;
   }
 
   &:focus {
-    box-shadow: 0 0 1px 2px #282828 !important;
+    box-shadow: $input-hover-box-shadow;
 
     & + label {
-      background-color: #eeeeee !important;
+      background-image: $label-on-bg;
     }
   }
 
   &.p-filled {
-    box-shadow: 0 0 1px 2px #282828 !important;
+    box-shadow: $input-hover-box-shadow;
     & + label {
-      background-color: #eeeeee !important;
+      background-image: $label-on-bg;
     }
   }
 
+}
+
+label {
+  font-weight: lighter !important;
+}
+
+.wrapper {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
 
 
+h1 {
+  font-weight: 500;
+}
+
+// FLOATLABEL -> IN LABEL STYLE
+:host ::ng-deep .p-textarea {
+  background-color: $input-bg;
+  box-shadow: $input-box-shadow;
+
+  &:hover, &:focus, &.p-filled{
+    box-shadow: $input-hover-box-shadow;
+  }
+}
+
+
+:host ::ng-deep .p-floatlabel {
+  &:has(.p-inputnumber-input:focus) label,
+  &:has(.p-inputnumber-input.p-filled) label{
+    background-image: $label-on-bg;
+  }
 }
 
 .content {
   padding: 10px;
 }
+
+:host ::ng-deep .p-datepicker {
+  &-input {
+    width: 100% !important;
+  }
+}
+

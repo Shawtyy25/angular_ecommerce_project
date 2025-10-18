@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {DialogService} from '../../../services/admin/dialog.service';
 import {Dialog} from 'primeng/dialog';
 import {FloatLabel} from 'primeng/floatlabel';
@@ -8,7 +8,9 @@ import {Textarea} from 'primeng/textarea';
 import {InputNumber} from 'primeng/inputnumber';
 import {DatePicker} from 'primeng/datepicker';
 import {FileUpload} from 'primeng/fileupload';
-import {Image} from 'primeng/image';
+import {Carousel} from 'primeng/carousel';
+import {Select} from 'primeng/select';
+import {FilterService} from '../../../services/filter.service';
 
 interface FileUploadEvent {
   originalEvent: Event;
@@ -28,13 +30,15 @@ interface FileUploadEvent {
     InputNumber,
     DatePicker,
     FileUpload,
-    Image,
+    Carousel,
+    Select,
   ],
   templateUrl: './new-product-popup-template.component.html',
   styleUrl: './new-product-popup-template.component.scss'
 })
-export class NewProductPopupTemplateComponent {
+export class NewProductPopupTemplateComponent implements OnInit{
   visible: boolean = false;
+  responsiveOptions: any[] | undefined;
 
   productName: string = '';
   productDesc: string = '';
@@ -42,25 +46,72 @@ export class NewProductPopupTemplateComponent {
   price_valid_from: Date | undefined;
   price_valid_to: Date | undefined;
   readonly huDateFormat: string = 'yy/mm/dd';
-  img_sources: string[] = [];
+  img_sources= signal<string[]>([]);
+  leafCategories = signal<any[]>([]);
+  selectedCategory: string | undefined;
 
-  constructor(private dialogService: DialogService) {
+
+
+
+  constructor(private dialogService: DialogService, private filterService: FilterService) {
     this.dialogService.visible$.subscribe(state => this.visible = state);
+  }
 
+
+
+  ngOnInit() {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1400px',
+        numVisible: 2,
+        numScroll: 1
+      },
+      {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
+      },
+      {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ]
+
+    // leaf categories
+    this.loadLeafCategories();
+  }
+
+  private loadLeafCategories(): void {
+    this.filterService.getCategories().subscribe({
+      next: categories => {
+        console.log(categories)
+        this.leafCategories.set(this.filterService.makeLeafCategoryArray(categories, 'dropdown'));
+      },
+      error: err => console.error(err)
+    })
   }
 
   uploadImageSource(event: any): void {
-    for (let file of event.files) {
-      const reader = new FileReader();
+    const uploadedFile = event.files[0];
+    const reader = new FileReader();
 
-      reader.onload = (e: any) => {
-        this.img_sources.push(e.target.result);
-      }
+    reader.onload = () => {
+      const newImg = reader.result as string;
 
-      reader.readAsDataURL(file);
+      this.img_sources.update(imgs => [...imgs, newImg]);
+    };
 
-      console.log(file)
-    }
+    reader.readAsDataURL(uploadedFile);
 
   }
+
+
+
+
 }

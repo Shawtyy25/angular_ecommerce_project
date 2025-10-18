@@ -23,7 +23,6 @@ export class FilterSettingsComponent implements OnInit {
       this.filterService.getCategories().subscribe({
         next: (data) => {
           this.filterData.set(data);
-          console.log(data)
         },
         error: (err) => console.error(err)
       });

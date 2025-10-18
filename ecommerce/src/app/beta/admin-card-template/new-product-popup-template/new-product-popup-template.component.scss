@@ -104,4 +104,28 @@ h1 {
 }
 
 
+// IMG
+.media-div {
+  border: 2px dashed #c9c9c9;
+  border-radius: 10px;
+  background-color: $input-bg;
+}
 
+:host ::ng-deep .p-fileupload{
+  background-color: $input-bg;
+  border: 2px solid #a6a6a6;
+  color: #3d3d3d !important;
+  border-radius: 10px;
+  transition: .2s all;
+
+  &:hover {
+    border: 2px solid #5e5e5e;
+
+  }
+
+  &-choose-button {
+    font-size: .9rem !important;
+  }
+
+
+}

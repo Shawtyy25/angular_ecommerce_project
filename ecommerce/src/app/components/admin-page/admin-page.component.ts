@@ -23,7 +23,6 @@ export class AdminPageComponent implements OnInit{
   ngOnInit() {
 
     this.a_user = this.authService.getAdminUser();
-    console.log(this.a_user)
 
   }
 }

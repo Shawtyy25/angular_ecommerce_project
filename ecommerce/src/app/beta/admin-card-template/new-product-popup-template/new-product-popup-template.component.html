@@ -62,22 +62,36 @@
         <div class="product-media-wrapper">
           <h4 style="font-weight: lighter; color: gray;">Product Photos</h4>
 
-          <div class="media-div border-dashed border-2 border-black-100 gap-5 flex flex-col items-center  ">
+          <div class="media-div gap-4 flex flex-col items-center justify-center overflow-hidden" style="padding: 1rem">
 
-            <div class="image grid grid-cols-12 gap-2 " style="padding: 1rem">
-              @if (!img_sources.length) {
-                <p class="col-span-12 w-full text-center">Nothing Here</p>
+            <div class="image gap-3 w-full overflow-visible" style="max-height: 240px;">
+              @if (!img_sources().length) {
+                <p class="text-center text-gray-500 italic">No Data...</p>
               } @else {
-                @for (img of img_sources; track img) {
-                  <p-image
-                    [src]="img"
-                    alt="Image"
-                    width="250"
-                    class="col-span-4"
+                <p-carousel
+                  [value]="img_sources()"
+                  [numVisible]="3"
+                  [numScroll]="3"
+                  [circular]="true"
+                  [showNavigators]="true"
+                  [showIndicators]="false"
+                  [responsiveOptions]="responsiveOptions"
+                  class="w-full h-full"
+                >
 
-                  />
-                }
+                  <ng-template let-product #item>
+                    <div class="m-2 p-4">
+                      <div class="mb-4">
+                        <div class="relative mx-auto">
+                          <img [src]="product" alt="product_img" class="w-full max-h-[160px] w-auto" />
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+
+                </p-carousel>
               }
+
             </div>
 
 
@@ -86,7 +100,7 @@
               name="attachments[]"
               chooseIcon="pi pi-upload"
               accept="image/*"
-              maxFileSize="10000000"
+              maxFileSize="5000000"
               url="https://www.primefaces.org/cdn/api/upload.php"
               (onUpload)="uploadImageSource($event)"
               [auto]="true"
@@ -96,13 +110,26 @@
 
         </div>
 
+      </div>
 
+      <div class="wrapper category-div">
+        <h1>Category</h1>
 
-
-
+        <p-select
+          [options]="leafCategories()"
+          [(ngModel)]="selectedCategory"
+          [checkmark]="true"
+          optionLabel="name"
+          [showClear]="true"
+          placeholder="Select a City"
+          class="w-full md:w-56"
+        />
 
       </div>
+
     </div>
+
+
 
   </div>
 

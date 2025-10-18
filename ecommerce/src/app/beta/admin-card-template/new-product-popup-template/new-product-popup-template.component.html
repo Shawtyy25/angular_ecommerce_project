@@ -1,24 +1,46 @@
-<p-dialog
-  header="Add Product"
-  [(visible)]="visible"
-  [modal]="true"
-  [breakpoints]="{'1199px': '75vw', '575px': '90vw' }"
-  [style]="{ width: '70vw' }"
-  [draggable]="false"
-  [resizable]="false"
->
-  <div class="content grid grid-cols-12 gap-7">
+ <p-dialog
+    header="Add Product"
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{'1199px': '75vw', '575px': '90vw' }"
+    [style]="{ width: '70vw' }"
+
+    [draggable]="false"
+    [resizable]="false"
+    (onHide)="clearValidations()"
+  >
+
+
+
+
+
+
+  <div class="content grid grid-cols-12 gap-7 h-[700px]">
 
     <!--LEFT SIDE-->
     <div class="left col-span-12 lg:col-span-7 flex flex-col gap-8">
 
       <!--GENERAL INFORMATION (NAME DESC) DIV-->
-      <div class="general-inf flex flex-col gap-5 wrapper ">
+      <div class="general-inf flex flex-col gap-6 wrapper ">
         <h1>General information</h1>
-        <p-float-label variant="on" class="bg-gray-250 " >
-          <input pInputText id="product-name" [(ngModel)]="productName" autocomplete="off" class="w-full" />
+        <p-float-label variant="on" class="bg-gray-250 ">
+          <input
+            pInputText
+            id="product-name"
+            [(ngModel)]="productName"
+            autocomplete="off"
+            class="w-full"
+            appInputError
+            [isValid]="(!productName && !isInputValid) ? isInputValid : true"
+          />
           <label for="product-name">Product name</label>
+
+          @if (!productName && !isInputValid) {
+            <small class="error">*Required</small>
+          }
+
         </p-float-label>
+
 
         <p-floatlabel variant="in">
           <textarea pTextarea id="over_label" [(ngModel)]="productDesc" rows="5" cols="30" style="resize: none" class="h-full w-full" maxlength="255"></textarea>
@@ -27,24 +49,51 @@
       </div>
 
       <!--PRICING DIV-->
-      <div class="pricing flex flex-col gap-5 wrapper">
+      <div class="pricing flex flex-col gap-6 wrapper" >
         <h1>Pricing</h1>
         <div class="price-div flex flex-col">
           <p-floatlabel variant="on" >
-            <p-inputNumber [(ngModel)]="price" inputId="price" mode="currency" currency="HUF" locale="hu-HU" [minFractionDigits]="0" [maxFractionDigits]="0"  class="w-full"/>
+            <p-inputNumber
+              [(ngModel)]="price"
+              inputId="price"
+              mode="currency"
+              currency="HUF"
+              locale="hu-HU"
+              [minFractionDigits]="0"
+              [maxFractionDigits]="0"
+              class="w-full"
+              appInputError
+              [isValid]="(!price && !isInputValid) ? isInputValid : true"
+            />
             <label for="price">Price</label>
+
+            @if (!price && !isInputValid) {
+              <small class="error">*Required</small>
+            }
           </p-floatlabel>
         </div>
 
         <div class="date-picker-div grid grid-cols-12 gap-5">
           <p-floatlabel variant="in" class="col-span-6 ">
-            <p-date-picker [(ngModel)]="price_valid_from" inputId="price_vf" showIcon iconDisplay="input" [dateFormat]="huDateFormat"/>
+            <p-date-picker
+              [(ngModel)]="price_valid_from"
+              inputId="price_vf"
+              showIcon iconDisplay="input"
+              [dateFormat]="huDateFormat"
+              appInputError
+              [isValid]="(!price_valid_from && !isInputValid) ? isInputValid : true"
+            />
             <label for="price_vf">Valid From</label>
+            @if (!price_valid_from && !isInputValid) {
+              <small class="error" style="bottom: -40%;">*Required</small>
+            }
           </p-floatlabel>
+
           <p-floatlabel variant="in" class="col-span-6">
             <p-date-picker [(ngModel)]="price_valid_to" inputId="price_vt" showIcon iconDisplay="input" [dateFormat]="huDateFormat"/>
             <label for="price_vt">Valid To</label>
           </p-floatlabel>
+
 
         </div>
 
@@ -53,7 +102,7 @@
 
 
     <!--RIGHT SIDE-->
-    <div class="right col-span-12 lg:col-span-5 flex flex-col gap-8" >
+    <div class="right col-span-12 lg:col-span-5 flex flex-col gap-8 h-full" >
 
 
       <div class="wrapper product-media-div gap-4 flex flex-col " >
@@ -66,7 +115,7 @@
 
             <div class="image gap-3 w-full overflow-visible" style="max-height: 240px;">
               @if (!img_sources().length) {
-                <p class="text-center text-gray-500 italic">No Data...</p>
+                <p class="text-center text-gray-500 italic">No Image Uploaded</p>
               } @else {
                 <p-carousel
                   [value]="img_sources()"
@@ -82,8 +131,8 @@
                   <ng-template let-product #item>
                     <div class="m-2 p-4">
                       <div class="mb-4">
-                        <div class="relative mx-auto">
-                          <img [src]="product" alt="product_img" class="w-full max-h-[160px] w-auto" />
+                        <div class="relative mx-auto flex justify-center">
+                          <img [src]="product" alt="product_img" class="max-h-[160px] w-auto" />
                         </div>
                       </div>
                     </div>
@@ -112,19 +161,66 @@
 
       </div>
 
-      <div class="wrapper category-div">
+      <div class="wrapper category-div gap-5 flex flex-col relative">
         <h1>Category</h1>
+
+
 
         <p-select
           [options]="leafCategories()"
           [(ngModel)]="selectedCategory"
-          [checkmark]="true"
           optionLabel="name"
+          [filter]="true"
+          filterBy="name"
           [showClear]="true"
-          placeholder="Select a City"
-          class="w-full md:w-56"
-        />
+          placeholder="Select a category"
+          class="w-full md:w-56 "
+          appInputError
+          [isValid]="(!selectedCategory && !isInputValid) ? isInputValid : true"
+          [panelStyle]="{ 'max-height': '200px', 'overflow-y': 'auto' }"
+        >
 
+
+          <ng-template #selectedItem let-selectedOption>
+            <div class="flex items-center gap-2 ">
+              <div>{{ selectedOption.name }}</div>
+            </div>
+          </ng-template>
+
+        </p-select>
+        @if (!selectedCategory && !isInputValid) {
+          <small style="position: absolute; bottom:0; left: revert;" class="error">*Required</small>
+        }
+
+
+
+      </div>
+
+
+
+      <div class="add-product h-full flex flex items-end gap-4 justify-center">
+        <p-toast />
+        <p-confirmDialog #cd>
+          <ng-template #headless let-message let-onAccept="onAccept" let-onReject="onReject">
+            <div class="flex flex-col items-center p-8 gap-5 bg-surface-0 bg-surface-900 rounded">
+              <div
+                class="rounded-full bg-primary text-primary-contrast inline-flex justify-center items-center h-24 w-24 -mt-20"
+              >
+                <i class="pi pi-question !text-5xl"></i>
+              </div>
+              <span class="font-bold text-2xl block mb-2 mt-6">{{ message.header }}</span>
+              <p class="mb-0">{{ message.message }}</p>
+              <div class="flex items-center gap-2 mt-6 ">
+                <p-button label="Reset" (onClick)="onAccept()" styleClass="w-32" class="dialog-button confirm-button"></p-button>
+                <p-button label="Cancel" [outlined]="true" (onClick)="onReject()" styleClass="w-32" class="dialog-button"></p-button>
+              </div>
+            </div>
+          </ng-template>
+        </p-confirmDialog>
+        <p-button (click)="confirmReset()" label="Reset" icon="pi pi-undo" class="reset-button"/>
+
+
+        <p-button label="Add Product" icon="pi pi-check" [loading]="loading" (onClick)="load()" class="add-product-button"/>
       </div>
 
     </div>

@@ -1,4 +1,4 @@
-import {Component, OnInit, signal} from '@angular/core';
+import {Component, computed, OnInit, signal} from '@angular/core';
 import {DialogService} from '../../../services/admin/dialog.service';
 import {Dialog} from 'primeng/dialog';
 import {FloatLabel} from 'primeng/floatlabel';
@@ -11,6 +11,11 @@ import {FileUpload} from 'primeng/fileupload';
 import {Carousel} from 'primeng/carousel';
 import {Select} from 'primeng/select';
 import {FilterService} from '../../../services/filter.service';
+import {Button, ButtonDirective, ButtonIcon, ButtonLabel} from 'primeng/button';
+import {InputErrorDirective} from '../../../directives/input-error.directive';
+import {ConfirmDialog, ConfirmDialogModule} from 'primeng/confirmdialog';
+import {Toast} from 'primeng/toast';
+import {ConfirmationService, MessageService} from 'primeng/api';
 
 interface FileUploadEvent {
   originalEvent: Event;
@@ -32,9 +37,14 @@ interface FileUploadEvent {
     FileUpload,
     Carousel,
     Select,
+    Button,
+    InputErrorDirective,
+    ConfirmDialog,
+    Toast,
   ],
   templateUrl: './new-product-popup-template.component.html',
-  styleUrl: './new-product-popup-template.component.scss'
+  styleUrl: './new-product-popup-template.component.scss',
+  providers: [ConfirmationService, MessageService]
 })
 export class NewProductPopupTemplateComponent implements OnInit{
   visible: boolean = false;
@@ -50,10 +60,16 @@ export class NewProductPopupTemplateComponent implements OnInit{
   leafCategories = signal<any[]>([]);
   selectedCategory: string | undefined;
 
+  isInputValid: boolean = true;
 
 
+  //add new product
+  loading: boolean = false;
 
-  constructor(private dialogService: DialogService, private filterService: FilterService) {
+  // validating
+
+
+  constructor(private dialogService: DialogService, private filterService: FilterService, private confirmationService: ConfirmationService) {
     this.dialogService.visible$.subscribe(state => this.visible = state);
   }
 
@@ -85,12 +101,14 @@ export class NewProductPopupTemplateComponent implements OnInit{
 
     // leaf categories
     this.loadLeafCategories();
+
+    //validation
+    this.isInputValid = true;
   }
 
   private loadLeafCategories(): void {
     this.filterService.getCategories().subscribe({
       next: categories => {
-        console.log(categories)
         this.leafCategories.set(this.filterService.makeLeafCategoryArray(categories, 'dropdown'));
       },
       error: err => console.error(err)
@@ -111,7 +129,55 @@ export class NewProductPopupTemplateComponent implements OnInit{
 
   }
 
+  load() {
+    this.validateInputs();
+
+    if (this.isInputValid) {
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+        this.visible = false;
+
+        setTimeout(() => this.dialogService.hide(), 300);
+      }, 1000);
+    } else {
+      return
+    }
 
 
 
+  }
+
+  validateInputs(): void {
+    this.isInputValid = !!(this.productName &&
+      this.price &&
+      this.price_valid_from &&
+      this.selectedCategory);
+
+  }
+
+  clearValidations(): void {
+    this.isInputValid = true;
+  }
+
+  confirmReset() {
+    this.confirmationService.confirm({
+      header: 'Are you sure?',
+      message: 'Do you want to reset all fields?',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => this.resetForm(),
+      reject: () => {},
+    });
+  }
+
+  private resetForm() {
+    this.productName = '';
+    this.productDesc = '';
+    this.price = undefined;
+    this.price_valid_from = undefined;
+    this.price_valid_to = undefined;
+    this.selectedCategory = undefined;
+    this.img_sources.set([]);
+    this.isInputValid = true;
+  }
 }

@@ -9,7 +9,6 @@
       <change afterPath="$PROJECT_DIR$/server/nest-backend/src/categories/categories.entity.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/nest-backend/src/users/user.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/new-product-popup-template/new-product-popup-template.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/new-product-popup-template/new-product-popup-template.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/new-product-popup-template/new-product-popup-template.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/new-product-popup-template/new-product-popup-template.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/new-product-popup-template/new-product-popup-template.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/src/app/beta/admin-card-template/new-product-popup-template/new-product-popup-template.component.ts" afterDir="false" />

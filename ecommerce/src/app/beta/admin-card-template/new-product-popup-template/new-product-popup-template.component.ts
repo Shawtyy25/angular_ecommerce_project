@@ -1,5 +1,5 @@
 import {Component, computed, OnInit, signal} from '@angular/core';
-import {DialogService} from '../../../services/admin/dialog.service';
+import {CreateProductDto, DialogService} from '../../../services/admin/dialog.service';
 import {Dialog} from 'primeng/dialog';
 import {FloatLabel} from 'primeng/floatlabel';
 import {InputText} from 'primeng/inputtext';
@@ -17,12 +17,10 @@ import {ConfirmDialog, ConfirmDialogModule} from 'primeng/confirmdialog';
 import {Toast} from 'primeng/toast';
 import {ConfirmationService, MessageService} from 'primeng/api';
 
-interface FileUploadEvent {
-  originalEvent: Event;
-  files: File[]
+interface Category {
+  id: number;
+  name: string;
 }
-
-
 
 @Component({
   selector: 'app-new-product-popup-template',
@@ -58,7 +56,7 @@ export class NewProductPopupTemplateComponent implements OnInit{
   readonly huDateFormat: string = 'yy/mm/dd';
   img_sources= signal<string[]>([]);
   leafCategories = signal<any[]>([]);
-  selectedCategory: string | undefined;
+  selectedCategory: Category | undefined;
 
   isInputValid: boolean = true;
 
@@ -107,6 +105,7 @@ export class NewProductPopupTemplateComponent implements OnInit{
   }
 
   private loadLeafCategories(): void {
+
     this.filterService.getCategories().subscribe({
       next: categories => {
         this.leafCategories.set(this.filterService.makeLeafCategoryArray(categories, 'dropdown'));
@@ -117,15 +116,9 @@ export class NewProductPopupTemplateComponent implements OnInit{
 
   uploadImageSource(event: any): void {
     const uploadedFile = event.files[0];
-    const reader = new FileReader();
+    const relativePath = `assets/images/${uploadedFile.name}`;
 
-    reader.onload = () => {
-      const newImg = reader.result as string;
-
-      this.img_sources.update(imgs => [...imgs, newImg]);
-    };
-
-    reader.readAsDataURL(uploadedFile);
+    this.img_sources.update(imgs => [...imgs, relativePath]);
 
   }
 
@@ -133,19 +126,34 @@ export class NewProductPopupTemplateComponent implements OnInit{
     this.validateInputs();
 
     if (this.isInputValid) {
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-        this.visible = false;
+      const payload: CreateProductDto = {
+        name: this.productName,
+        description: this.productDesc,
+        categoryId: this.selectedCategory!.id,
+        price: {price: this.price!, validFrom: this.price_valid_from!, validTo: this.price_valid_to},
+        attachments: this.img_sources().map(s => ({ src: s, alt_text: null})),
+      }
 
-        setTimeout(() => this.dialogService.hide(), 300);
-      }, 1000);
+
+      this.dialogService.createNewProduct(payload).subscribe({
+        next: data => {
+          console.log('Product saved', data);
+          this.loading = true;
+          setTimeout(() => {
+            this.loading = false;
+            this.visible = false;
+
+            setTimeout(() => this.dialogService.hide(), 300);
+          }, 1000);
+
+        },
+        error: err => console.error('Error saving product:', err)
+      });
+
+
     } else {
       return
     }
-
-
-
   }
 
   validateInputs(): void {

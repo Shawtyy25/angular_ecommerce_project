@@ -4,10 +4,8 @@ import {IconField} from 'primeng/iconfield';
 import {InputIcon} from 'primeng/inputicon';
 import {InputText} from 'primeng/inputtext';
 import {DialogService} from '../../../../services/admin/dialog.service';
-import {
-  NewProductPopupTemplateComponent
-} from '../../../../beta/admin-card-template/new-product-popup-template/new-product-popup-template.component';
 import {skip} from 'rxjs';
+import {NewProductPopupTemplateComponent} from './new-product-dialog/new-product-dialog.component';
 
 @Component({
   selector: 'app-prod-header',
@@ -18,7 +16,7 @@ import {skip} from 'rxjs';
     IconField,
     InputIcon,
     InputText,
-    NewProductPopupTemplateComponent
+    NewProductPopupTemplateComponent,
   ],
   templateUrl: './prod-header.component.html',
   styleUrl: './prod-header.component.scss'

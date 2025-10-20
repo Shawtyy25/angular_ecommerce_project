@@ -1,0 +1,247 @@
+$input-bg: #f8fafb;
+$input-box-shadow: 0 0 2px 1px #d7d7d7 !important;
+$input-hover-box-shadow: 0 0 1px 2px #c9c9c9 !important;
+$label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important;
+$width-full: 100% !important;
+$localBg: #1f3957;
+
+:host ::ng-deep .p-dialog {
+  background-color: #eeeeee !important;
+  color: black !important;
+  border-radius: 5px;
+
+}
+
+::ng-deep .p-button-rounded {
+  &:hover {
+    background-color: #e1e1e1 !important;
+    color: #b00000 !important;
+  }
+}
+
+
+:host ::ng-deep .p-inputtext {
+  /*box-shadow: 0 0 2px 1px #d7d7d7 !important;*/
+  box-shadow: $input-box-shadow;
+  border-radius: 5px;
+  background-color: $input-bg;
+
+  &:hover {
+    box-shadow: $input-hover-box-shadow;
+  }
+
+  &:focus {
+    box-shadow: $input-hover-box-shadow;
+
+    & + label {
+      background-image: $label-on-bg;
+    }
+  }
+
+  &.p-filled {
+    box-shadow: $input-hover-box-shadow;
+    & + label {
+      background-image: $label-on-bg;
+    }
+  }
+
+}
+
+label {
+  font-weight: lighter !important;
+}
+
+.wrapper {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+h1 {
+  font-weight: 500;
+}
+
+// FLOATLABEL -> IN LABEL STYLE
+:host ::ng-deep .p-textarea {
+  background-color: $input-bg;
+  box-shadow: $input-box-shadow;
+
+  &:hover, &:focus, &.p-filled{
+    box-shadow: $input-hover-box-shadow;
+  }
+}
+
+
+:host ::ng-deep .p-floatlabel {
+  &:has(.p-inputnumber-input:focus) label,
+  &:has(.p-inputnumber-input.p-filled) label{
+    background-image: $label-on-bg;
+  }
+}
+
+.content {
+  padding: 10px;
+}
+
+:host ::ng-deep .p-datepicker {
+  width: $width-full;
+  &-input {
+    width: $width-full;
+  }
+
+  &-panel {
+    background-color: #f3f3f3 !important;
+    box-shadow: $input-box-shadow;
+  }
+
+  .p-button-rounded {
+    &:hover {
+      background-color: #e1e1e1 !important;
+      color: black !important;
+    }
+  }
+
+}
+
+
+// IMG
+.media-div {
+  border: 2px dashed #c9c9c9;
+  border-radius: 10px;
+  background-color: $input-bg;
+}
+
+:host ::ng-deep .p-fileupload{
+  background-color: $input-bg;
+  border: 2px solid #a6a6a6;
+  color: #3d3d3d !important;
+  border-radius: 10px;
+  transition: .2s all;
+
+  &:hover {
+    border: 2px solid #5e5e5e;
+
+  }
+
+  &-choose-button {
+    font-size: .9rem !important;
+  }
+
+
+}
+
+::ng-deep .p-select {
+  box-shadow: $input-box-shadow;
+  font-weight: lighter !important;
+  background-color: $input-bg;
+
+  &:hover,
+  &-open {
+    box-shadow: $input-hover-box-shadow;
+  }
+
+  &-list {
+    background-color: $input-bg !important;
+    box-shadow: $input-box-shadow;
+    font-weight: lighter !important;
+  }
+
+  &-option {
+    font-weight: lighter !important;
+
+    &-selected {
+      background-color: #d0d0d0 !important;
+      color: #3b3b3b !important;
+    }
+  }
+
+  &-header {
+    background-color: $input-bg !important;
+
+
+  }
+
+  &-filter {
+    font-size: .9rem;
+  }
+}
+
+
+// ADD PRODUCT BUTTON
+.add-product {
+  padding: 0 3rem !important;
+}
+
+::ng-deep .add-product-button {
+  background-color: $localBg;
+  color: white !important;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+
+  & button {
+    width: 100%;
+
+    &:hover{
+      background-color: #2c507e !important;
+    }
+  }
+}
+
+small.error {
+  color: red;
+  font-style: italic;
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+}
+
+::ng-deep .reset-button {
+  background-color: rgba(206, 1, 1, 0.87) !important;
+  color: white;
+  border-radius: 5px;
+  transition: .2s all;
+
+  &:hover {
+    background-color: rgb(255, 0, 0) !important;
+  }
+}
+
+::ng-deep  .p-confirmdialog {
+  background-color: white !important;
+  color: black !important;
+  padding: 2rem 1.5rem;
+  border-radius: 5px;
+  height: 250px;
+  box-shadow: $input-box-shadow;
+
+  & .rounded-full {
+    background-color: $localBg;
+    color: white !important;
+    margin-top: -80px;
+  }
+
+
+}
+
+::ng-deep .dialog-button {
+  box-shadow: 0 0 1px 1px #4d4d4d;
+  transition: .2s all !important;
+  &:hover {
+    box-shadow: 0 0 2px 1px black !important;
+  }
+
+
+}
+
+::ng-deep .confirm-button {
+  background-color: $localBg;
+  color: white !important;
+  transition: .2s all;
+
+  &:hover {
+    background-color: #165b9d !important;
+  }
+}
+

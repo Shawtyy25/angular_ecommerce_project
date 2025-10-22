@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e3de9ab4-0d01-4008-9f14-0320ee52d121" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/server/nest-backend/src/categories/categories.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/nest-backend/src/data-source.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/nest-backend/src/users/user.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

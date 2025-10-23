@@ -1,4 +1,4 @@
-import {Component, OnInit, Signal, signal} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Signal, signal} from '@angular/core';
 import { Tree } from 'primeng/tree';
 import { TreeNode } from 'primeng/api';
 import {FilterService} from '../../../../services/filter.service';
@@ -19,6 +19,7 @@ export class FilterSettingsComponent implements OnInit {
   filterData = signal<any[]>([]);
   selectedNode!: TreeNode[] | null;
 
+
     ngOnInit(): void {
       this.filterService.getCategories().subscribe({
         next: (data) => {
@@ -31,6 +32,10 @@ export class FilterSettingsComponent implements OnInit {
 
     clearSelected(): void {
       this.selectedNode = null;
+    }
+
+    onNodeSelect(node: TreeNode[] | null) {
+      this.filterService.setSelectedNode(node);
     }
 
 

@@ -6,7 +6,7 @@ import {NgClass} from '@angular/common';
 import {PrimeTemplate} from 'primeng/api';
 import {SelectButton} from 'primeng/selectbutton';
 import {FormsModule} from '@angular/forms';
-import {ProductsService} from '../../services/admin/products.service';
+import {ProductsService} from '../../../services/admin/products.service';
 
 
 @Component({

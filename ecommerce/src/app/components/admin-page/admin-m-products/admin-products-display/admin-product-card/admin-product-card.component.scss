@@ -48,14 +48,31 @@ div {
 }
 
 
-.card-each {
-  box-shadow: 0 0 2px 1px gray;
-  padding: 10px;
 
-  &:hover {
-    box-shadow: 0 0 5px 1px gray;
+
+.grid-layout img {
+  width: 100%;
+  height: 200px;
+}
+
+
+
+/* GRID LAYOUT */
+.grid-layout{
+  background-color: #eaeaea !important;
+  padding: 10px;
+  color: #676767;
+
+  .card-each {
+    box-shadow: 0 0 2px 1px gray;
+    padding: 10px;
+
+    &:hover {
+      box-shadow: 0 0 5px 1px gray;
+    }
   }
 }
+
 
 
 

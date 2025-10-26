@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:15
+    image: postgres:17
     container_name: dev_ecommerce_db
     environment:
       POSTGRES_USER: ${DB_USER}
@@ -8,7 +8,7 @@ services:
       POSTGRES_DB: ${DB_NAME}
 
     ports:
-      - "5433:5432"
+      - "${DB_PORT}:5432"
 
     volumes:
       - ./db_data:/var/lib/postgresql/data

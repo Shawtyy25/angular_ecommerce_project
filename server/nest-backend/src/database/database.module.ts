@@ -3,34 +3,19 @@ import { Client } from 'pg';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Category } from '../admin/new-product/category/entities/category.entity';
-import { Price } from '../admin/new-product/price/entities/price.entity';
 import { Product } from '../admin/new-product/product/entities/product.entity';
+import { Price } from '../admin/new-product/price/entities/price.entity';
 import { Attachment } from '../admin/new-product/attachment/entities/attachment.entity';
+import * as dotenv from 'dotenv';
+
 
 @Global()
 @Module({
-  providers: [
-    {
-      provide: 'PG_CLIENT',
-      useFactory: async () => {
-        const client = new Client({
-          user: process.env.DB_USER,
-          host: process.env.DB_HOST,
-          database: process.env.DB_NAME,
-          password: `${process.env.DB_PASSWORD}`,
-          port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
-        });
-        await client.connect();
-        return client;
-      },
-    },
-
-
-  ],
-
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: process.env.NODE_ENV === 'production'
+        ? '../client.production.env'
+        : '../client.development.env',
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({
@@ -42,10 +27,28 @@ import { Attachment } from '../admin/new-product/attachment/entities/attachment.
         username: configService.get<string>('DB_USER'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: ['dist/**/*.entity{.ts,.js}'],
+        entities: [Category, Product, Price, Attachment],
+        synchronize: false,
       }),
-      inject: [ConfigService]
-    })
+      inject: [ConfigService],
+    }),
+  ],
+  providers: [
+    {
+      provide: 'PG_CLIENT',
+      useFactory: async (configService: ConfigService) => {
+        const client = new Client({
+          user: configService.get<string>('DB_USER'),
+          host: configService.get<string>('DB_HOST'),
+          database: configService.get<string>('DB_NAME'),
+          password: configService.get<string>('DB_PASSWORD'),
+          port: configService.get<number>('DB_PORT', 5432),
+        });
+        await client.connect();
+        return client;
+      },
+      inject: [ConfigService],
+    },
   ],
   exports: ['PG_CLIENT', TypeOrmModule],
 })

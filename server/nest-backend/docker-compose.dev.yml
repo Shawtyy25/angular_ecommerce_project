@@ -1,16 +1,14 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15
     container_name: dev_ecommerce_db
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES:DB: ${DB_NAME}
+      POSTGRES_USER: devUser
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: dev_ecommerce_db
 
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
     volumes:
       - ./db_data:/var/lib/postgresql/data

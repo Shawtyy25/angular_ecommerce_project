@@ -8,7 +8,7 @@ import { Attachment } from './admin/new-product/attachment/entities/attachment.e
 const envFile = process.env.NODE_ENV === 'production'
     ? '../client.production.env'
     : '../client.development.env';
-dotenv.config({ path: envFile })
+dotenv.config({ path: envFile });
 
 export const AppDataSource = new DataSource({
   type: 'postgres',

@@ -3,9 +3,9 @@ services:
     image: postgres:15
     container_name: dev_ecommerce_db
     environment:
-      POSTGRES_USER: devUser
-      POSTGRES_PASSWORD: devpassword
-      POSTGRES_DB: dev_ecommerce_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
 
     ports:
       - "5433:5432"

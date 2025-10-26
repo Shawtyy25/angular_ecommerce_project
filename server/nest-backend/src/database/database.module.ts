@@ -6,7 +6,6 @@ import { Category } from '../admin/new-product/category/entities/category.entity
 import { Product } from '../admin/new-product/product/entities/product.entity';
 import { Price } from '../admin/new-product/price/entities/price.entity';
 import { Attachment } from '../admin/new-product/attachment/entities/attachment.entity';
-import * as dotenv from 'dotenv';
 
 
 @Global()
@@ -14,8 +13,8 @@ import * as dotenv from 'dotenv';
   imports: [
     ConfigModule.forRoot({
       envFilePath: process.env.NODE_ENV === 'production'
-        ? '../client.production.env'
-        : '../client.development.env',
+        ? '../.env.production'
+        : '../.env.development',
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({

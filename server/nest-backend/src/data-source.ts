@@ -6,8 +6,8 @@ import { Price } from './admin/new-product/price/entities/price.entity';
 import { Attachment } from './admin/new-product/attachment/entities/attachment.entity';
 
 const envFile = process.env.NODE_ENV === 'production'
-    ? '../client.production.env'
-    : '../client.development.env';
+    ? '../env.production'
+    : '../.env.development';
 dotenv.config({ path: envFile });
 
 export const AppDataSource = new DataSource({

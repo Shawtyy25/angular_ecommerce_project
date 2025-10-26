@@ -56,7 +56,7 @@ pids
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Környezeti változók
-./client.development.env
-./client.production.env
+server/nest-backend/client.development.env
+server/nest-backend/client.production.env
 
 

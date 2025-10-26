@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: dev_ecommerce_db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES:DB: ${DB_NAME}
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+      - ./dev_ecommerce_db.backup:/docker-entrypoint-initdb.d/dev_ecommerce_db.backup

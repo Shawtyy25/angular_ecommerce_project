@@ -1,12 +1,14 @@
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
-import * as path from 'path';
 import { Category } from './admin/new-product/category/entities/category.entity';
 import { Product } from './admin/new-product/product/entities/product.entity';
 import { Price } from './admin/new-product/price/entities/price.entity';
 import { Attachment } from './admin/new-product/attachment/entities/attachment.entity';
 
-dotenv.config({ path: '../client.env'})
+const envFile = process.env.NODE_ENV === 'production'
+    ? '../client.production.env'
+    : '../client.development.env';
+dotenv.config({ path: envFile })
 
 export const AppDataSource = new DataSource({
   type: 'postgres',

@@ -1,4 +1,4 @@
-import {Component, computed, OnInit, signal} from '@angular/core';
+import {Component, computed, effect, inject, OnInit, signal} from '@angular/core';
 import {Dialog} from 'primeng/dialog';
 import {FloatLabel} from 'primeng/floatlabel';
 import {InputText} from 'primeng/inputtext';
@@ -15,7 +15,7 @@ import {Toast} from 'primeng/toast';
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {FilterService} from '../../../../../services/filter.service';
 import {InputErrorDirective} from '../../../../../directives/input-error.directive';
-import {CreateProductDto, DialogService} from '../../../../../services/admin/dialog.service';
+import {CreateProductDto, DialogService} from '../../../../../services/admin/dialog/dialog.service';
 
 interface Category {
   id: number;
@@ -46,6 +46,10 @@ interface Category {
   providers: [ConfirmationService, MessageService]
 })
 export class NewProductPopupTemplateComponent implements OnInit{
+  private dialogService = inject(DialogService);
+  private filterService = inject(FilterService);
+  private confirmationService = inject(ConfirmationService);
+
   visible: boolean = false;
   responsiveOptions: any[] | undefined;
 
@@ -61,17 +65,14 @@ export class NewProductPopupTemplateComponent implements OnInit{
 
   isInputValid: boolean = true;
 
-
-  //add new product
   loading: boolean = false;
 
-  // validating
 
-
-  constructor(private dialogService: DialogService, private filterService: FilterService, private confirmationService: ConfirmationService) {
-    this.dialogService.visible$.subscribe(state => this.visible = state);
+  constructor() {
+    effect(() => {
+      this.visible = this.dialogService.productVisible();
+    });
   }
-
 
 
   ngOnInit() {
@@ -142,9 +143,9 @@ export class NewProductPopupTemplateComponent implements OnInit{
           this.loading = true;
           setTimeout(() => {
             this.loading = false;
-            this.visible = false;
+            this.dialogService.hideProduct();
 
-            setTimeout(() => this.dialogService.hide(), 300);
+            setTimeout(() => this.dialogService.hideProduct(), 300);
           }, 1000);
 
         },
@@ -167,6 +168,7 @@ export class NewProductPopupTemplateComponent implements OnInit{
 
   clearValidations(): void {
     this.isInputValid = true;
+    this.dialogService.hideProduct();
   }
 
   confirmReset() {

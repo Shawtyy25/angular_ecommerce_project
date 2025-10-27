@@ -5,7 +5,7 @@ import {Tag} from "primeng/tag";
 import {DecimalPipe, NgClass} from '@angular/common';
 import {SelectButton} from 'primeng/selectbutton';
 import {FormsModule} from '@angular/forms';
-import {ProductsService} from '../../../../../services/admin/products.service';
+import {ProductsService} from '../../../../../services/admin/new-product/products.service';
 import {FilterService} from '../../../../../services/filter.service';
 import {TreeNode} from 'primeng/api';
 import {filter} from 'rxjs';

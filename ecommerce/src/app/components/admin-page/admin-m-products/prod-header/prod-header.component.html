@@ -1,16 +1,27 @@
-@if (dialogVisible) {
+@if (productDialogVisible()) {
   <app-new-product-dialog/>
 }
 
-<div class="header flex justify-between ">
+@if (categoryDialogVisible()) {
+  <app-new-category-dialog/>
+}
 
-  <button pButton (click)="showDialog()">
-    <i class="pi pi-plus " pButtonIcon></i>
-    <span pButtonLabel>Add Product</span>
-  </button>
+<div class="header flex justify-between ">
+  <div class="add-new-buttons flex gap-2">
+    <button pButton (click)="showProductDialog()">
+      <i class="pi pi-plus " pButtonIcon></i>
+      <span pButtonLabel>Add Product</span>
+    </button>
+
+    <button pButton (click)="showCategoryDialog()" class="category-button">
+      <i class="pi pi-plus" pButtonIcon></i>
+      <span pButtonLabel>Add Category</span>
+    </button>
+  </div>
+
 
   <p-icon-field class="bg-gray-200 border-black border-1 text-black">
-    <p-inputicon class="pi pi-search" />
-    <input type="text" pInputText placeholder="Search" />
+    <p-inputicon class="pi pi-search"/>
+    <input type="text" pInputText placeholder="Search product"/>
   </p-icon-field>
 </div>

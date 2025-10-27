@@ -9,22 +9,7 @@ import { Repository, TreeRepository } from 'typeorm';
 export class CategoryService {
   constructor(@InjectRepository(Category) private categoryRepository: TreeRepository<Category>) {}
 
-
-  create(createCategoryDto: CreateCategoryDto) {
-    return 'This action adds a new category';
-  }
-
-
-  findOne(id: number) {
-    return `This action returns a #${id} category`;
-  }
-
-  update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return `This action updates a #${id} category`;
-  }
-
-
-  remove(id: number) {
-    return `This action removes a #${id} category`;
+  async getAllCategory() {
+    return await this.categoryRepository.findTrees();
   }
 }

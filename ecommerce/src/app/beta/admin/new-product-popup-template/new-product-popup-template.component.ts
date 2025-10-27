@@ -1,5 +1,5 @@
 import {Component, computed, OnInit, signal} from '@angular/core';
-import {CreateProductDto, DialogService} from '../../../services/admin/dialog.service';
+import {CreateProductDto, DialogService} from '../../../services/admin/dialog/dialog.service';
 import {Dialog} from 'primeng/dialog';
 import {FloatLabel} from 'primeng/floatlabel';
 import {InputText} from 'primeng/inputtext';
@@ -68,7 +68,7 @@ export class NewProductPopupTemplateComponent implements OnInit{
 
 
   constructor(private dialogService: DialogService, private filterService: FilterService, private confirmationService: ConfirmationService) {
-    this.dialogService.visible$.subscribe(state => this.visible = state);
+    this.dialogService.productVisible$.subscribe(state => this.visible = state);
   }
 
 
@@ -143,7 +143,7 @@ export class NewProductPopupTemplateComponent implements OnInit{
             this.loading = false;
             this.visible = false;
 
-            setTimeout(() => this.dialogService.hide(), 300);
+            setTimeout(() => this.dialogService.hideProduct(), 300);
           }, 1000);
 
         },

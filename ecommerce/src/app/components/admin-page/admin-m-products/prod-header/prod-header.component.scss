@@ -11,3 +11,11 @@ button {
   margin-bottom: 15px;
 }
 
+button.category-button {
+  background-color: #fc5521 !important;
+
+  &:hover {
+    background-color: #e59602 !important;
+  }
+}
+

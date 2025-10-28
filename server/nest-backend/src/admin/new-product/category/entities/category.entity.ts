@@ -2,10 +2,11 @@ import {
   Column,
   Entity,
   JoinColumn,
-  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
-  Tree, TreeChildren, TreeLevelColumn, TreeParent,
+  Tree,
+  TreeChildren,
+  TreeParent,
 } from 'typeorm';
 import { Product } from '../../product/entities/product.entity';
 
@@ -21,7 +22,7 @@ export class Category {
   @Column({ type: 'varchar', nullable: true, length: 255 })
   icon?: string;
 
-  @OneToMany(() => Product, product => product.category)
+  @OneToMany(() => Product, (product) => product.category)
   products: Product[];
 
   @TreeParent()
@@ -30,9 +31,4 @@ export class Category {
 
   @TreeChildren()
   children: Category[];
-
-
-
-
-
 }

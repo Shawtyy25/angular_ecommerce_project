@@ -14,7 +14,7 @@ export class FilterService {
 
 
   getCategories(): Observable<any> {
-    return this.http.get('http://localhost:3300/api/categories');
+    return this.http.get('http://localhost:3300/api/admin/category/get');
   }
 
   makeLeafCategoryArray(categories: any[], state?: 'dropdown') {

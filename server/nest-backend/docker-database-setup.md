@@ -43,7 +43,7 @@ git clone <git_repo_url> angular_ecommerce_project
 cd angular_ecommerce_project/server/nest-backend
 ```
 
-## `3` .env létrehozása a nest-backend könyvtárban
+## `3` client.env létrehozása a nest-backend könyvtárban
 ```dotenv
 DB_USER=dev_user_test
 DB_PASSWORD=dev_password_test

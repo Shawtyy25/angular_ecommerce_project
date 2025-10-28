@@ -1,20 +1,20 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { AuthService } from '../auth/auth.service';
-import { User } from './user.entity';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { UserService } from './user.service';
+import { AuthService } from '../../auth/auth.service';
+import { User } from './entities/user.entity';
 
-@Controller('users')
-export class UsersController {
+@Controller('api/user')
+export class UserController {
   private loggedInUser: User | null = null;
 
   constructor(
-    private readonly usersService: UsersService,
+    private readonly userService: UserService,
     private readonly authService: AuthService,
   ) {}
 
   @Get()
   async findAll() {
-    return this.usersService.findAll();
+    return this.userService.findAll();
   }
 
   @Post('login')
@@ -33,6 +33,11 @@ export class UsersController {
   logout() {
     this.loggedInUser = null;
     return { message: 'Logged out successfully!' };
+  }
+
+  @Get('count')
+  async userCount() {
+    return this.userService.userCount();
   }
 
   @Get('current')

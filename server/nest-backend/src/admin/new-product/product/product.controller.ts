@@ -1,7 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+} from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
-
 
 @Controller('api/admin/')
 export class ProductController {
@@ -13,8 +17,7 @@ export class ProductController {
   }
 
   @Get('get/product')
-  async findAllWithCategory(){
+  async findAllWithCategory() {
     return this.productService.findAllWithCategory();
   }
-
 }

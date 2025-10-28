@@ -1,22 +1,103 @@
+$bg-orange: #fc5521;
+$bg-blue: #14263a ;
+$bg-card: #eeeeee;
+$box-shadow: 0 0 2px 1px #d7d7d7 !important;
+$text-color: rgb(58, 58, 58) !important;
+$input-bg: #f8fafb;
+$input-hover-box-shadow: 0 0 1px 2px #c9c9c9 !important;
+$label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important;
+
 ::ng-deep .p-dialog {
-  background-color: white !important;
+  background-color: $bg-card !important;
 
   &-header {
     color: #343434 !important;
   }
+  &-content{
+    height: 100% !important;
+  }
+}
+
+.card {
+  padding: 5px;
+  background-color: white !important;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
 }
 
 
 ::ng-deep .p-treetable{
-  color: rgba(58, 58, 58, 0.88) !important;
+  color: $text-color;
+
 
   th, td {
-
     border-color: #dcdcdc !important;
   }
 
 
   td {
-    color: rgba(58, 58, 58, 0.88) !important;
+    color: $text-color;
+  }
+
+  .p-button:has(.pi-pencil) {
+    background-color: $bg-blue !important;
+    border: $bg-blue !important;
+    color: rgba(255, 255, 255, 0.71) !important;
+  }
+
+  .p-button:has(.pi-refresh) {
+    background-color: $bg-orange !important;
+    color: white !important;
+  }
+
+}
+
+
+.content-right-div {
+  color: $text-color;
+  padding: 20px;
+
+}
+
+
+::ng-deep .p-inputtext {
+  box-shadow: $box-shadow;
+  border-radius: 5px;
+  background-color: $input-bg;
+  width: 100% !important;
+
+  & + label {
+    font-weight: normal !important;
+  }
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+
+  &:focus {
+    box-shadow: $input-hover-box-shadow;
+
+    & + label {
+      background-image: $label-on-bg;
+    }
+  }
+
+  &.p-filled {
+    box-shadow: $input-hover-box-shadow;
+    & + label {
+      background-image: $label-on-bg;
+    }
+  }
+
+}
+
+::ng-deep .icon-select{
+  width: 100% !important;
+  box-shadow: $box-shadow;
+  background-color: $input-bg;
+
+  .p-select-option:hover {
+    background-color: #cecece !important;
   }
 }
+

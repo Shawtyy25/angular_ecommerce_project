@@ -1,11 +1,16 @@
-import {Component, effect, inject, OnInit} from '@angular/core';
+import {Component, effect, inject, OnInit, signal} from '@angular/core';
 import {DialogService} from '../../../../../services/admin/dialog/dialog.service';
 import {Button} from 'primeng/button';
 import {Dialog} from 'primeng/dialog';
 import {TreeTableModule} from 'primeng/treetable';
 import {TreeNode} from 'primeng/api';
 import {CategoryService} from '../../../../../services/admin/new-category/category.service';
-import {NgIf} from '@angular/common';
+import {FloatLabel} from 'primeng/floatlabel';
+import {InputText} from 'primeng/inputtext';
+import {FormsModule} from '@angular/forms';
+import {IconService} from '../../../../../services/icons/icon.service';
+import {Select} from 'primeng/select';
+
 
 interface Column {
   field: string;
@@ -25,6 +30,10 @@ interface CategoryNode {
     Dialog,
     TreeTableModule,
     Button,
+    FloatLabel,
+    InputText,
+    FormsModule,
+    Select,
   ],
   templateUrl: './new-category-dialog.component.html',
   styleUrl: './new-category-dialog.component.scss'
@@ -32,10 +41,15 @@ interface CategoryNode {
 export class NewCategoryDialogComponent implements OnInit {
   private dialogService = inject(DialogService);
   private categoryService = inject(CategoryService);
+  private iconService = inject(IconService);
 
   categories!: TreeNode[];
   cols!: Column[];
   visible: boolean = false;
+  selectedCategory = signal<CategoryNode | undefined>(undefined);
+  newCategoryName: string | undefined;
+  icons = signal<{}[]>([{}]);
+  selectedIcon: string | undefined;
 
   constructor() {
     effect(() => {
@@ -50,7 +64,7 @@ export class NewCategoryDialogComponent implements OnInit {
     ];
 
     this.getCategoriesFromService();
-
+    this.getIconsFromApi();
 
   }
 
@@ -75,7 +89,26 @@ export class NewCategoryDialogComponent implements OnInit {
     }))
   }
 
+  selectItem(category: CategoryNode) {
+    category.id === this.selectedCategory()?.id ? this.selectedCategory.set(undefined) : this.selectedCategory.set(category);
+
+  }
+
+  getIconsFromApi() {
+    this.iconService.getAllPrimeIcons().subscribe({
+      next: iconList => {
+        this.icons.set(iconList.map(icon => ({
+          name: icon,
+        })));
+      },
+      error: err => console.error(err)
+    })
+  }
+
+
   onDialogClose() {
     this.dialogService.hideCategory();
   }
+
+
 }

@@ -3,25 +3,25 @@
   [(visible)]="visible"
   [modal]="true"
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
-  [style]="{ width: '70vw' }"
+  [style]="{ width: '70vw', height: '70vh' }"
   [draggable]="false"
   [resizable]="false"
   (onHide)="onDialogClose()"
 >
-  <div class="wrapper grid grid-cols-12">
-    <div class="content-left-div col-span-5">
+  <div class="wrapper grid grid-cols-12 gap-5 h-full">
+    <div class="content-left-div col-span-6 card self-start">
       <p-treeTable
         [value]="categories"
         [columns]="cols"
         [scrollable]="true"
         [tableStyle]="{ 'min-width': '2rem' }"
         [paginator]="true"
-        [rows]="3"
-        [rowsPerPageOptions]="[1, 3]"
+        [rows]="5"
+        [rowsPerPageOptions]="[1, 3, 5]"
 
       >
         <ng-template #caption>
-          <div class="text-xl font-bold">File Viewer</div>
+          <div class="text-xl font-bold">Categories</div>
         </ng-template>
         <ng-template #header let-columns>
           <tr>
@@ -43,15 +43,18 @@
                 @if (col.field === 'action') {
                   <div class="flex gap-2 justify-end">
                     <p-button
-                      icon="pi pi-search"
-                      rounded="true"
+                      [icon]="selectedCategory()?.id === rowData.id ? 'pi pi-circle-fill' : 'pi pi-circle'"
+                      [rounded]="true"
                       [style]="{ 'margin-right': '.5em' }"
+                      (click)="selectItem(rowData)"
+
                     />
+
 
                     <p-button
                       icon="pi pi-pencil"
-                      rounded="true"
-                      severity="success"
+                      [rounded]="true"
+                      severity="warn"
                     />
                   </div>
                 }
@@ -63,15 +66,40 @@
         </ng-template>
         <ng-template #summary>
           <div style="text-align:left">
-            <p-button icon="pi pi-refresh" label="Reload" severity="warn" (click)="getCategoriesFromService()"/>
+            <p-button icon="pi pi-refresh" label="Reload" severity="warn" (click)="getCategoriesFromService()" />
           </div>
         </ng-template>
       </p-treeTable>
     </div>
 
 
-    <div class="content-right-div col-span-7">
+    <div class="content-right-div col-span-6 card flex flex-col gap-8 h-full">
+      <h1 class="text-xl font-bold ">New Category</h1>
 
+      <p-floatlabel variant="on">
+        <input pInputText id="on_label" [value]="selectedCategory()?.name" autocomplete="off" readonly disabled />
+        <label for="on_label">Parent category</label>
+      </p-floatlabel>
+
+      <p-floatlabel variant="on">
+        <input pInputText id="on_label" [(ngModel)]="newCategoryName" autocomplete="off" />
+        <label for="on_label">Name</label>
+      </p-floatlabel>
+
+      <p-select [options]="icons()" [(ngModel)]="selectedIcon" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select an icon" class="w-full md:w-56 icon-select">
+        <ng-template #selectedItem let-selectedOption>
+          <div class="flex items-center gap-2">
+            <p [class]="`pi pi-${selectedOption.name}`"></p>
+            <div>{{ selectedOption.name }}</div>
+          </div>
+        </ng-template>
+        <ng-template let-icon #item>
+          <div class="flex items-center gap-2">
+            <p [class]="`pi pi-${icon.name}`"></p>
+            <div>{{ icon.name }}</div>
+          </div>
+        </ng-template>
+      </p-select>
     </div>
   </div>
 

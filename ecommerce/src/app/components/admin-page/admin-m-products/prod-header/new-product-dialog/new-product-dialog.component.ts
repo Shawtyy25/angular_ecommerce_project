@@ -108,9 +108,10 @@ export class NewProductPopupTemplateComponent implements OnInit{
 
   private loadLeafCategories(): void {
 
-    this.filterService.getCategories().subscribe({
+    this.filterService.getLeaves().subscribe({
       next: categories => {
-        this.leafCategories.set(this.filterService.makeLeafCategoryArray(categories, 'dropdown'));
+        this.leafCategories.set(categories);
+        console.log(categories)
       },
       error: err => console.error(err)
     })

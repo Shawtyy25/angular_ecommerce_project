@@ -17,30 +17,8 @@ export class FilterService {
     return this.http.get('http://localhost:3300/api/admin/category/get');
   }
 
-  makeLeafCategoryArray(categories: any[], state?: 'dropdown') {
-    const leaves: any[] = [];
-
-    function filterLeaves(node: any) {
-      if (!node.children || node.children.length === 0) {
-        leaves.push(node);
-        return
-      }
-
-      node.children.forEach((child: any) => filterLeaves(child));
-
-    }
-
-    categories.forEach(filterLeaves);
-
-    if (state) {
-      const dd_leaves: any[] = leaves.map((node: any) => ({
-        id: node.data.id,
-        name: node.data.name
-      }))
-
-      return dd_leaves;
-    }
-    return leaves;
+  getLeaves(): Observable<any> {
+    return this.http.get('http://localhost:3300/api/admin/category/get/leaf');
   }
 
   setSelectedNode(nodes: TreeNode[] | null) {

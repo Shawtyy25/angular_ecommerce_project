@@ -12,5 +12,10 @@ export class CategoryController {
     return await this.categoryService.getAllCategory();
   }
 
+  @Get('leaf')
+  async getLeafCategories() {
+    return await this.categoryService.getLeafCategories();
+  }
+
 
 }

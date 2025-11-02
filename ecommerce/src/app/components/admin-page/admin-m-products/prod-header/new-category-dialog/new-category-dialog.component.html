@@ -86,7 +86,19 @@
         <label for="on_label">Name</label>
       </p-floatlabel>
 
-      <p-select [options]="icons()" [(ngModel)]="selectedIcon" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select an icon" class="w-full md:w-56 icon-select">
+      <p-select
+        [options]="icons()"
+        [(ngModel)]="selectedIcon"
+        optionLabel="name"
+        [virtualScroll]="true"
+        [virtualScrollItemSize]="30"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select an icon"
+        class="w-full md:w-56 icon-select"
+
+      >
         <ng-template #selectedItem let-selectedOption>
           <div class="flex items-center gap-2">
             <p [class]="`pi pi-${selectedOption.name}`"></p>

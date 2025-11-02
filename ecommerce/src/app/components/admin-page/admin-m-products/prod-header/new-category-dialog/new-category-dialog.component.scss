@@ -18,6 +18,7 @@ $label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important
   }
 }
 
+
 .card {
   padding: 5px;
   background-color: white !important;
@@ -96,8 +97,35 @@ $label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important
   box-shadow: $box-shadow;
   background-color: $input-bg;
 
-  .p-select-option:hover {
-    background-color: #cecece !important;
+
+  .p-select-list {
+    background-color: white !important;
+    box-shadow: $box-shadow !important;
   }
 }
 
+::ng-deep .p-paginator-page {
+
+  &-selected {
+    background-color: $bg-blue !important;
+  }
+
+}
+
+::ng-deep .p-select-list {
+  background-color: white !important;
+  box-shadow: $box-shadow !important;
+}
+
+::ng-deep .p-select-option {
+
+  &:hover {
+    background-color: #e1e1e1 !important;
+    color: black !important;
+  }
+
+  &-selected {
+    background-color: $bg-blue !important;
+    color: white !important;
+  }
+}

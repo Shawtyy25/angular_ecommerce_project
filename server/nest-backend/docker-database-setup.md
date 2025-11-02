@@ -58,7 +58,7 @@ DB_PORT=dev_port #Ne ütközzön semmilyen porttal (pl: Postgres: 5432)
 sudo docker compose -f docker-compose.dev.yml down
 
 #Indítsd el a konténert a .env.development fájl használatával:
-sudo docker compose --env-file .env.development -f docker-compose.dev.yml up -d
+sudo docker compose --env-file client.env -f docker-compose.dev.yml up -d
 
 #Konténerek állapotának ellenőrzése
 sudo docker ps

@@ -92,6 +92,7 @@ $label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important
 
 }
 
+
 ::ng-deep .icon-select{
   width: 100% !important;
   box-shadow: $box-shadow;
@@ -127,5 +128,17 @@ $label-on-bg: linear-gradient(to bottom, white 50%, transparent 30%)  !important
   &-selected {
     background-color: $bg-blue !important;
     color: white !important;
+  }
+}
+
+::ng-deep .validation {
+  .p-button {
+    background-color: $bg-blue !important;
+    color: white !important;
+    width: 100% !important;
+
+    &:hover {
+      background-color: #2c507e !important;
+    }
   }
 }

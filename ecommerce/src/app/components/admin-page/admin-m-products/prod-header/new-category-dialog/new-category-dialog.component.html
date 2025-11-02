@@ -55,6 +55,7 @@
                       icon="pi pi-pencil"
                       [rounded]="true"
                       severity="warn"
+                      (onClick)="setEditedItem(rowData)"
                     />
                   </div>
                 }
@@ -66,7 +67,7 @@
         </ng-template>
         <ng-template #summary>
           <div style="text-align:left">
-            <p-button icon="pi pi-refresh" label="Reload" severity="warn" (click)="getCategoriesFromService()" />
+            <p-button icon="pi pi-refresh" label="Reload" severity="warn" (click)="getCategoriesFromService()"/>
           </div>
         </ng-template>
       </p-treeTable>
@@ -74,49 +75,58 @@
 
 
     <div class="content-right-div col-span-6 card flex flex-col gap-8 h-full">
-      <h1 class="text-xl font-bold ">New Category</h1>
+      @if (editedItem()) {
+        <app-modify-category
 
-      <p-floatlabel variant="on">
-        <input pInputText id="on_label" [value]="selectedCategory()?.name" autocomplete="off" readonly disabled />
-        <label for="on_label">Parent category</label>
-      </p-floatlabel>
+        />
+      } @else {
 
-      <p-floatlabel variant="on">
-        <input pInputText id="on_label" [(ngModel)]="newCategoryName" autocomplete="off" />
-        <label for="on_label">Name</label>
-      </p-floatlabel>
+        <h1 class="text-xl font-bold ">New Category</h1>
 
-      <p-select
-        [options]="icons()"
-        [(ngModel)]="selectedIcon"
-        optionLabel="name"
-        [virtualScroll]="true"
-        [virtualScrollItemSize]="30"
-        [filter]="true"
-        filterBy="name"
-        [showClear]="true"
-        placeholder="Select an icon"
-        class="w-full md:w-56 icon-select"
+        <p-floatlabel variant="on">
+          <input pInputText id="on_label" [value]="selectedCategory()?.name" autocomplete="off" readonly disabled/>
+          <label for="on_label">Parent category</label>
+        </p-floatlabel>
 
-      >
-        <ng-template #selectedItem let-selectedOption>
-          <div class="flex items-center gap-2">
-            <p [class]="`pi pi-${selectedOption.name}`"></p>
-            <div>{{ selectedOption.name }}</div>
-          </div>
-        </ng-template>
-        <ng-template let-icon #item>
-          <div class="flex items-center gap-2">
-            <p [class]="`pi pi-${icon.name}`"></p>
-            <div>{{ icon.name }}</div>
-          </div>
-        </ng-template>
-      </p-select>
+        <p-floatlabel variant="on">
+          <input pInputText id="on_label" [(ngModel)]="newCategoryName" autocomplete="off"/>
+          <label for="on_label">Name</label>
+        </p-floatlabel>
+
+        <p-select
+          [options]="icons()"
+          [(ngModel)]="selectedIcon"
+          optionLabel="name"
+          [virtualScroll]="true"
+          [virtualScrollItemSize]="30"
+          [filter]="true"
+          filterBy="name"
+          [showClear]="true"
+          placeholder="Select an icon"
+          class="w-full md:w-56 icon-select"
+
+        >
+          <ng-template #selectedItem let-selectedOption>
+            <div class="flex items-center gap-2">
+              <p [class]="`pi pi-${selectedOption.name}`"></p>
+              <div>{{ selectedOption.name }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-icon #item>
+            <div class="flex items-center gap-2">
+              <p [class]="`pi pi-${icon.name}`"></p>
+              <div>{{ icon.name }}</div>
+            </div>
+          </ng-template>
+        </p-select>
+
+        <div class="validation flex h-full items-end justify-end w-full col-span-12 ">
+          <p-button label="Add New Category" icon="pi pi-check" class="w-full"/>
+        </div>
+      }
+
     </div>
 
-    <div class="validation">
-      <p-button label="Add New Category" icon="pi pi-check"/>
-    </div>
   </div>
 
 

@@ -10,6 +10,7 @@ import {InputText} from 'primeng/inputtext';
 import {FormsModule} from '@angular/forms';
 import {IconService} from '../../../../../services/icons/icon.service';
 import {Select} from 'primeng/select';
+import {ModifyCategoryComponent} from './modify-category/modify-category.component';
 
 
 interface Column {
@@ -34,6 +35,7 @@ interface CategoryNode {
     InputText,
     FormsModule,
     Select,
+    ModifyCategoryComponent,
   ],
   templateUrl: './new-category-dialog.component.html',
   styleUrl: './new-category-dialog.component.scss'
@@ -50,6 +52,7 @@ export class NewCategoryDialogComponent implements OnInit {
   newCategoryName: string | undefined;
   icons = signal<{}[]>([{}]);
   selectedIcon: string | undefined;
+  editedItem = signal<CategoryNode | undefined>(undefined)
 
   constructor() {
     effect(() => {
@@ -105,6 +108,10 @@ export class NewCategoryDialogComponent implements OnInit {
     })
   }
 
+  setEditedItem(item: CategoryNode) {
+    console.log(item)
+    this.editedItem.set(item);
+  }
 
   onDialogClose() {
     this.dialogService.hideCategory();

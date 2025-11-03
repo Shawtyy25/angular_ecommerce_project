@@ -25,6 +25,10 @@ interface CategoryNode {
   children?: CategoryNode[]
 }
 
+interface selectedIconInterface {
+  name: string;
+}
+
 @Component({
   selector: 'app-new-category-dialog',
   imports: [
@@ -51,7 +55,7 @@ export class NewCategoryDialogComponent implements OnInit {
   selectedCategory = signal<CategoryNode | undefined>(undefined);
   newCategoryName: string | undefined;
   icons = signal<{}[]>([{}]);
-  selectedIcon: string | undefined;
+  selectedIcon: selectedIconInterface | undefined;
   editedItem = signal<CategoryNode | undefined>(undefined)
 
   constructor() {
@@ -112,6 +116,28 @@ export class NewCategoryDialogComponent implements OnInit {
     console.log(item)
     this.editedItem.set(item);
   }
+
+  validateData(): boolean {
+    return !!this.newCategoryName;
+  }
+
+  addNewCategory() {
+    if (this.validateData()) {
+      this.categoryService.addNewCategory(
+        {
+          name: this.newCategoryName!,
+          icon: this.selectedIcon!.name ?? null,
+          parentId: this.selectedCategory()?.id! ?? null,
+        }
+      ).subscribe({
+          next: value => console.log(value),
+          error: error => console.error(error)
+        }
+      );
+
+    }
+  }
+
 
   onDialogClose() {
     this.dialogService.hideCategory();

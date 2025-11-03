@@ -3,11 +3,11 @@ import { CategoryService } from './category.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 
-@Controller('api/admin/category/get')
+@Controller('api/admin/category/')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
-  @Get()
+  @Get('get')
   async getAllCategory() {
     return await this.categoryService.getAllCategory();
   }
@@ -17,5 +17,9 @@ export class CategoryController {
     return await this.categoryService.getLeafCategories();
   }
 
+  @Post('add')
+  async addNewCategory(@Body() dto: CreateCategoryDto) {
+    return await this.categoryService.addNewCategory(dto);
+  }
 
 }

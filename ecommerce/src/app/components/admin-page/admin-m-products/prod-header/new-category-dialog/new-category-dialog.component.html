@@ -16,8 +16,8 @@
         [scrollable]="true"
         [tableStyle]="{ 'min-width': '2rem' }"
         [paginator]="true"
-        [rows]="5"
-        [rowsPerPageOptions]="[1, 3, 5]"
+        [rows]="3"
+        [rowsPerPageOptions]="[1, 3]"
 
       >
         <ng-template #caption>
@@ -89,7 +89,7 @@
         </p-floatlabel>
 
         <p-floatlabel variant="on">
-          <input pInputText id="on_label" [(ngModel)]="newCategoryName" autocomplete="off"/>
+          <input pInputText id="on_label" [(ngModel)]="newCategoryName" autocomplete="off" required/>
           <label for="on_label">Name</label>
         </p-floatlabel>
 
@@ -121,7 +121,7 @@
         </p-select>
 
         <div class="validation flex h-full items-end justify-end w-full col-span-12 ">
-          <p-button label="Add New Category" icon="pi pi-check" class="w-full"/>
+          <p-button label="Add New Category" icon="pi pi-check" class="w-full" (click)="addNewCategory()"/>
         </div>
       }
 

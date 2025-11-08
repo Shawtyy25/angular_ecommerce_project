@@ -60,7 +60,6 @@ import * as path from 'path';
 
 const envFilePath = path.resolve(__dirname, '../../../client.env');
 
-
 @Global()
 @Module({
   imports: [
@@ -84,6 +83,8 @@ const envFilePath = path.resolve(__dirname, '../../../client.env');
         };
 
         return config;
+
+
       },
       inject: [ConfigService],
     }),

@@ -121,7 +121,7 @@
         </p-select>
 
         <div class="validation flex h-full items-end justify-end w-full col-span-12 ">
-          <p-button label="Add New Category" icon="pi pi-check" class="w-full" (click)="addNewCategory()"/>
+          <p-button [loading]="loading" label="Add New Category" icon="pi pi-check" class="w-full" (click)="addNewCategory()"/>
         </div>
       }
 

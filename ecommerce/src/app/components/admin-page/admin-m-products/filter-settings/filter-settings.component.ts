@@ -32,7 +32,6 @@ export class FilterSettingsComponent implements OnInit {
     this.filterService.getCategories().subscribe({
       next: (data: CategoryNode[]) => {
         this.filterData.set(data.map(cat => this.mapToTreeNode(cat)));
-        console.table(this.filterData())
       },
       error: (err) => console.error(err)
     });

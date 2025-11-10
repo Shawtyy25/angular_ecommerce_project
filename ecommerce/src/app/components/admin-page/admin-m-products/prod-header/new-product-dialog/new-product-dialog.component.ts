@@ -111,7 +111,6 @@ export class NewProductPopupTemplateComponent implements OnInit{
     this.filterService.getLeaves().subscribe({
       next: categories => {
         this.leafCategories.set(categories);
-        console.log(categories)
       },
       error: err => console.error(err)
     })

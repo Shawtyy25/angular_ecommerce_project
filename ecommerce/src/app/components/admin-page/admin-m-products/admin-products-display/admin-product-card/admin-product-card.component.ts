@@ -69,7 +69,6 @@ export class AdminProductCardComponent implements OnInit{
       next: value => {
 
         this.products.set(value as Product[]);
-        console.log(this.products());
       },
       error: err => console.error(err),
     });

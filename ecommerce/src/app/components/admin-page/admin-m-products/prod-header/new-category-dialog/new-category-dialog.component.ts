@@ -56,7 +56,8 @@ export class NewCategoryDialogComponent implements OnInit {
   newCategoryName: string | undefined;
   icons = signal<{}[]>([{}]);
   selectedIcon: selectedIconInterface | undefined;
-  editedItem = signal<CategoryNode | undefined>(undefined)
+  editedItem = signal<CategoryNode | undefined>(undefined);
+  loading: boolean = false;
 
   constructor() {
     effect(() => {
@@ -122,6 +123,7 @@ export class NewCategoryDialogComponent implements OnInit {
   }
 
   addNewCategory() {
+    this.loading = true;
     if (this.validateData()) {
       this.categoryService.addNewCategory(
         {
@@ -130,10 +132,23 @@ export class NewCategoryDialogComponent implements OnInit {
           parentId: this.selectedCategory()?.id! ?? null,
         }
       ).subscribe({
-          next: value => console.log(value),
-          error: error => console.error(error)
+          next: value => {
+            setTimeout(() => {
+              this.loading = false;
+              this.dialogService.hideCategory();
+
+            }, 1000);
+          },
+          error: error => {
+            console.error(error);
+
+          },
         }
       );
+    } else {
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
 
     }
   }

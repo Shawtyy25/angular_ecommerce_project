@@ -18,7 +18,7 @@ export class FilterService {
   }
 
   getLeaves(): Observable<any> {
-    return this.http.get('http://localhost:3300/api/admin/category/get/leaf');
+    return this.http.get('http://localhost:3300/api/admin/category/leaf');
   }
 
   setSelectedNode(nodes: TreeNode[] | null) {

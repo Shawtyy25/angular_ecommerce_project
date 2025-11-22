@@ -34,7 +34,10 @@
         <ng-template #body let-rowNode let-rowData="rowData" let-columns="columns">
           <tr [ttRow]="rowNode">
             @for (col of columns; track col.field; let last = $last) {
-              <td>
+              <td
+                [ngClass]="editedItem()?.id === rowData.id ? 'bg-gray-300' : ''"
+              >
+
                 @if (col.field === 'name') {
                   <p-treetable-toggler [rowNode]="rowNode"/>
                   {{ rowData[col.field] }}
@@ -42,11 +45,13 @@
 
                 @if (col.field === 'action') {
                   <div class="flex gap-2 justify-end">
+
                     <p-button
                       [icon]="selectedCategory()?.id === rowData.id ? 'pi pi-circle-fill' : 'pi pi-circle'"
                       [rounded]="true"
                       [style]="{ 'margin-right': '.5em' }"
                       (click)="selectItem(rowData)"
+                      [disabled]="editedItem()?.id === rowData.id"
 
                     />
 
@@ -55,7 +60,8 @@
                       icon="pi pi-pencil"
                       [rounded]="true"
                       severity="warn"
-                      (onClick)="setEditedItem(rowData)"
+                      (onClick)="setEditedItem(rowNode.parent?.data, rowData)"
+                      [disabled]="editedItem()?.id === rowData.id"
                     />
                   </div>
                 }
@@ -75,9 +81,12 @@
 
 
     <div class="content-right-div col-span-6 card flex flex-col gap-8 h-full">
+
+      <!-- EDIT ITEMS DIV *************************************************************************-->
       @if (editedItem()) {
         <app-modify-category
-
+          [category]="editedItem()"
+          [selectedParentCategory]="selectedCategory()"
         />
       } @else {
 
@@ -121,7 +130,8 @@
         </p-select>
 
         <div class="validation flex h-full items-end justify-end w-full col-span-12 ">
-          <p-button [loading]="loading" label="Add New Category" icon="pi pi-check" class="w-full" (click)="addNewCategory()"/>
+          <p-button [loading]="loading" label="Add New Category" icon="pi pi-check" class="w-full"
+                    (click)="addNewCategory()"/>
         </div>
       }
 

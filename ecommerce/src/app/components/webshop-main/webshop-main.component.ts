@@ -30,6 +30,7 @@ export class WebshopMainComponent implements OnInit{
 
         if (response.length > 1) {
 
+          console.log(response);
           this.user = response[0].name;
 
         } else {

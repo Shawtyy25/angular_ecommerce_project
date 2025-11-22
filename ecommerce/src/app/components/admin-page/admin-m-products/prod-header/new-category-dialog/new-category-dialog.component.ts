@@ -11,6 +11,8 @@ import {FormsModule} from '@angular/forms';
 import {IconService} from '../../../../../services/icons/icon.service';
 import {Select} from 'primeng/select';
 import {ModifyCategoryComponent} from './modify-category/modify-category.component';
+import {data} from 'autoprefixer';
+import {NgClass, NgStyle} from '@angular/common';
 
 
 interface Column {
@@ -29,6 +31,13 @@ interface selectedIconInterface {
   name: string;
 }
 
+interface editedCategoryNode {
+  id: number,
+  name: string,
+  icon?: string,
+  parent?: CategoryNode | null
+}
+
 @Component({
   selector: 'app-new-category-dialog',
   imports: [
@@ -40,6 +49,8 @@ interface selectedIconInterface {
     FormsModule,
     Select,
     ModifyCategoryComponent,
+    NgStyle,
+    NgClass,
   ],
   templateUrl: './new-category-dialog.component.html',
   styleUrl: './new-category-dialog.component.scss'
@@ -56,7 +67,7 @@ export class NewCategoryDialogComponent implements OnInit {
   newCategoryName: string | undefined;
   icons = signal<{}[]>([{}]);
   selectedIcon: selectedIconInterface | undefined;
-  editedItem = signal<CategoryNode | undefined>(undefined);
+  editedItem = signal<editedCategoryNode | undefined>(undefined);
   loading: boolean = false;
 
   constructor() {
@@ -98,8 +109,9 @@ export class NewCategoryDialogComponent implements OnInit {
   }
 
   selectItem(category: CategoryNode) {
-    category.id === this.selectedCategory()?.id ? this.selectedCategory.set(undefined) : this.selectedCategory.set(category);
-
+    category.id === this.selectedCategory()?.id
+      ? this.selectedCategory.set(undefined)
+      : this.selectedCategory.set(category);
   }
 
   getIconsFromApi() {
@@ -113,9 +125,16 @@ export class NewCategoryDialogComponent implements OnInit {
     })
   }
 
-  setEditedItem(item: CategoryNode) {
-    console.log(item)
-    this.editedItem.set(item);
+  setEditedItem(parent: CategoryNode | null, category: CategoryNode) {
+    this.selectedCategory.set(undefined);
+
+    this.editedItem.set({
+      ...category,
+      parent: parent
+    })
+
+    this.selectedCategory.set(this.editedItem()?.parent ?? undefined);
+
   }
 
   validateData(): boolean {
